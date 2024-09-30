@@ -1,0 +1,72 @@
+/* Home.css */
+
+/* Container styling */
+form {
+  max-width: 500px; /* Limit form width */
+  margin: 50px auto; /* Center the form vertically and horizontally */
+  padding: 20px; /* Add padding around the form */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Form heading */
+h2 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Space below heading */
+  color: #333; /* Text color */
+  font-family: 'Arial', sans-serif; /* Font style */
+  font-size: 24px; /* Font size */
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  width: 100%; /* Full width */
+  padding: 10px; /* Space inside the input */
+  margin: 10px 0; /* Space above and below */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding in width */
+  font-size: 16px; /* Font size */
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 3px; /* Adjust padding for file input */
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%; /* Full width */
+  padding: 15px; /* Large padding */
+  margin-top: 20px; /* Space above */
+  background-color: #FFA07A; /* Green background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 18px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+  background-color:  #f5a623; /* Darker green on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  form {
+    padding: 15px; /* Reduce padding on small screens */
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  button[type="submit"] {
+    font-size: 14px; /* Smaller font size */
+    padding: 10px; /* Smaller padding */
+  }
+}

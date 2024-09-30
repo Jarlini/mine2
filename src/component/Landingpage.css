@@ -1,0 +1,85 @@
+/* Landing Page Styles */
+.landing-page {
+  padding: 20px;
+  background-color: #f0f8ff; /* Light background for a cute look */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between; 
+   align-items: flex-start; }
+
+.left-div { 
+  margin-top: 150px;
+  width: 50%;
+  padding-right: 20px; /* Add space between text and images */
+}
+
+.right-div {
+  margin-top: 70px;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for the images */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows for the images */
+  gap: 1px; /* Space between images */
+  padding: 1px; /* Add padding around the image grid */
+  box-sizing: border-box; /* Ensure padding doesn't affect overall width */
+}
+
+.right-div img {
+  
+  width: 100%; /* Make images take up the full width of their grid cell */
+  height: 300px; /* Adjust height to fit two rows */
+  border-radius: 10px; /* Rounded corners for the images */
+  box-shadow: 0px 4px 6px rgba(219, 40, 8, 0.1); /* Add a soft shadow for a neat effect */
+  background-color: rgb(255, 255, 255); /* Optional: Background color to enhance padding effect */
+  object-fit: cover; /* Ensure images cover the area without distortion */
+}
+
+.home-button {
+  margin-top: 20px;
+  margin-left: 700px;
+  background-color: #FFA07A; /* Cute orange color */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px; /* Increase font size for better readability */
+}
+
+.home-button:hover {
+  background-color:  #f5a623; /* Darker orange for hover effect */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #008080; /* Teal color for footer */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Animation Styles */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+.welcome-text {
+  font-size: 58px;              /* Large font size */
+  color:#FFA07A;               /* Coral color */
+  text-align: center;            /* Centered text */
+  margin-bottom: 20px;           /* Add space below the heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Soft text shadow */
+  animation: fadeIn 2s ease-in-out;
+  font-weight: bold;}

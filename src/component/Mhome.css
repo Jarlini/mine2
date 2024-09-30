@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  /* User List Styles */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  li h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  li p {
+    margin: 8px 0;
+    color: #555;
+  }
+  
+  /* Button Container for Alignment */
+  .button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; /* Space between buttons */
+    margin-top: 15px; /* Space between content and buttons */
+  }
+  
+  /* Button Styles */
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Delete Button */
+  button.delete-btn {
+    background-color: #FFA07A;
+    color: #fff;
+  }
+  
+  /* Edit Button */
+  button.edit-btn {
+    background-color: #FFA07A;
+    color: #fff;
+  }
+  
+  /* Edit Form Styles */
+  form {
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  form button {
+    background-color: #FFA07A;
+    color: #fff;
+    font-size: 14px;
+  }
+  

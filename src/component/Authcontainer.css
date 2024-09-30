@@ -1,0 +1,128 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #FFF6F0; /* Very light orange background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  margin: 0;
+}
+
+/* Auth Container */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+
+}
+.container {
+  margin-top: 20px; /* Slight top margin to push container from the top */
+  display: flex;
+  width: 120%;
+  max-width: 1200px;
+  min-height: 600px; /* Ensure the container has a minimum height */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: #FFFFFF; /* White background for the container */
+  justify-content: space-between; /* Spacing between image and form */
+  align-items: center; /* Center items vertically */
+}
+
+/* Image Section */
+.left-div {height:600px;
+  flex: 1;
+  /* background: url('/path/to/your/image.png') no-repeat center center;
+  background-size: cover; */
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+/* Form Section */
+.right-div {height:600px;
+  width: 600px;
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+/* Form Box */
+h1 {
+  margin-bottom: 20px;
+  color: #c64837; /* Coral color for the heading */
+  font-size: 36px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Form Elements */
+form {
+  width: 120%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form elements */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  padding: 12px;
+  border: 2px solid #FF9A8B; /* Light coral border for inputs */
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #FFA07A; /* Deep orange border on focus */
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  background-color:#FFA07A; /* Coral background for the button */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color:  #f5a623; /* Deep orange on hover */
+}
+
+/* Toggle Link */
+.toggle-text {
+  margin-top: 400px;
+  margin-right:4px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.toggle-text a {
+  color: #c64837; /* Coral color for the link */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.toggle-text a:hover {
+  text-decoration: underline;
+}
+
+/* Toast Notifications */
+.Toastify__toast--success {
+  background-color: #c64837; /* Coral for success messages */
+}
+
+.Toastify__toast--error {
+  background-color: #FF5722; /* Deep orange for error messages */
+}
