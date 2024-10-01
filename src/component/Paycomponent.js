@@ -32,6 +32,9 @@ const PackagesPage = ({ isLoggedIn }) => {
     fetchPackages();
   }, []);
 
+  // Calculate totalAmount based on the cart and number of passengers
+  const totalAmount = cart.reduce((total, pkg) => total + pkg.price, 0) * bookingData.numberOfPassengers;
+
   const handleCartToggle = (pkg) => {
     setCart((prev) => {
       const isInCart = prev.some((item) => item._id === pkg._id);
@@ -86,24 +89,23 @@ const PackagesPage = ({ isLoggedIn }) => {
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
+    const totalAmount = cart.reduce((total, pkg) => total + pkg.price, 0) * bookingData.numberOfPassengers;
 
-    // Calculate total amount for multiple packages based on number of passengers
-    const totalAmount = cart.reduce((total, pkg) => total + (pkg.price * bookingData.numberOfPassengers), 0);
+    const bookingPayload = {
+      ...bookingData,
+      packages: cart.map((pkg) => ({
+        packageId: pkg._id,
+        packageName: pkg.name,
+        packagePrice: pkg.price,
+      })),
+      totalAmount,
+    };
+
+    console.log('Booking Payload:', bookingPayload); // Log the payload
+    console.log('Passenger Email:', bookingPayload.passengers.map((p) => p.email)); // Check passenger emails
 
     try {
-      // Prepare data to send
-      const bookingPayload = {
-        ...bookingData,
-        packages: cart.map(pkg => ({
-          packageId: pkg._id,
-          packageName: pkg.name,
-          packagePrice: pkg.price,
-        })), // Fetch multiple packages
-        totalAmount,
-      };
-
-      // Send the booking data via POST request
-      const response = await fetch('/api/bookings', {
+      const response = await fetch('http://localhost:3000/api/bookings/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingPayload),
@@ -111,13 +113,15 @@ const PackagesPage = ({ isLoggedIn }) => {
 
       if (response.ok) {
         alert('Booking successful!');
-        navigate('/payment'); // Navigate to the payment page on successful booking
+        navigate('/payment');
       } else {
+        const errorData = await response.json(); // Log error response
+        console.error('Booking error:', errorData);
         alert('Failed to create booking. Please try again.');
       }
     } catch (error) {
-      alert('Error occurred while submitting the booking. Please try again.');
       console.error('Error submitting booking:', error);
+      alert('Error occurred while submitting the booking. Please try again.');
     }
   };
 
@@ -150,7 +154,6 @@ const PackagesPage = ({ isLoggedIn }) => {
         </button>
       </div>
 
-      {/* Agreement Modal */}
       {showAgreement && (
         <div className="agreement-modal">
           <div className="agreement-content">
@@ -163,14 +166,17 @@ const PackagesPage = ({ isLoggedIn }) => {
                 <li>We reserve the right to take action if any rules are violated.</li>
               </ul>
             </p>
-            <h3>Total Amount: Rs.{cart.reduce((total, pkg) => total + pkg.price, 0).toLocaleString()}</h3>
-            <button className="accept-button" onClick={handleAccept}>Accept</button>
-            <button className="cancel-button" onClick={() => setShowAgreement(false)}>Cancel</button>
+            <h3>Total Amount: Rs.{totalAmount.toLocaleString()}</h3>
+            <button className="accept-button" onClick={handleAccept}>
+              Accept
+            </button>
+            <button className="cancel-button" onClick={() => setShowAgreement(false)}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
 
-      {/* Email Form */}
       {showEmailForm && (
         <div className="email-form">
           <h2 style={{ color: '#D5006D' }}>Enter your Email</h2>
@@ -185,7 +191,6 @@ const PackagesPage = ({ isLoggedIn }) => {
         </div>
       )}
 
-      {/* Booking Form */}
       {showBookingForm && (
         <div className="booking-form">
           <h2>Booking Form</h2>
@@ -209,6 +214,17 @@ const PackagesPage = ({ isLoggedIn }) => {
                     name={`passenger-name-${index}`}
                     value={passenger.name}
                     onChange={(e) => handleBookingFormChange(e, index)}
+                    required
+                  />
+                </label>
+                <label>
+                  Age:
+                  <input
+                    type="number"
+                    name={`passenger-age-${index}`}
+                    value={passenger.age}
+                    onChange={(e) => handleBookingFormChange(e, index)}
+                    required
                   />
                 </label>
                 <label>
@@ -218,6 +234,7 @@ const PackagesPage = ({ isLoggedIn }) => {
                     name={`passenger-email-${index}`}
                     value={passenger.email}
                     onChange={(e) => handleBookingFormChange(e, index)}
+                    required
                   />
                 </label>
               </div>
@@ -250,7 +267,6 @@ const PackagesPage = ({ isLoggedIn }) => {
                 onChange={handleBookingFormChange}
               >
                 <option value="Total Payment">Total Payment</option>
-                {/* Add more payment options if needed */}
               </select>
             </label>
             <button type="submit">Book Now</button>
