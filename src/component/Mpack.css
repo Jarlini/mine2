@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Set a clean font for the body */
+    background-color: #f8f9fa; /* Light background for the app */
+    margin: 0;
+    padding: 20px; /* Add padding to the main content */
+  }
+  
+  h1, h2 {
+    color: #343a40; /* Dark color for headings */
+  }
+  
+  h1 {
+    margin-bottom: 20px; /* Space below the main heading */
+  }
+  
+  h2 {
+    margin-top: 20px; /* Space above subheadings */
+  }
+  
+  /* Package List Styles */
+  ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0; /* Remove default padding */
+  }
+  
+  li {
+    display: flex; /* Use flexbox for list items */
+    justify-content: space-between; /* Space between package name and buttons */
+    align-items: center; /* Center items vertically */
+    padding: 10px; /* Add padding for list items */
+    margin: 10px 0; /* Space between list items */
+    background-color: #ffffff; /* White background for list items */
+    border: 1px solid #dee2e6; /* Light border for separation */
+    border-radius: 4px; /* Rounded corners */
+    transition: box-shadow 0.3s ease; /* Smooth shadow effect */
+  }
+  
+  li:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  }
+  
+  /* Input Styles */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside the input */
+    margin: 10px 0; /* Space above and below inputs */
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width */
+    font-size: 16px; /* Increase font size */
+  }
+  
+  /* Button Container Styles */
+  .button-container {
+    display: flex; /* Use flexbox to align buttons */
+    justify-content: space-between; /* Space out buttons evenly */
+    margin-top: 10px; /* Space above the button container */
+  }
+  
+  /* Individual Button Styles */
+  .button-container button {
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
+  
+  /* Main Add/Update Button */
+  .button-container button.main-button {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color for primary button */
+  }
+  
+  .button-container button.main-button:hover {
+    background-color: #007bff; /* Darker shade on hover */
+  }
+  
+  /* Cancel Button */
+  .button-container button.cancel-button {
+    background-color: #6c757d; /* Secondary button color */
+    color: white; /* Text color for secondary button */
+  }
+  
+  .button-container button.cancel-button:hover {
+    background-color: #5a6268; /* Darker shade on hover */
+  }
+  

@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import photo2 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-31-31.png';
-import photo3 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-27-49.png';
-import photo4 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-33-31.png';
-import photo5 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-25-26.png';
-import photo6 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-32-02.png';
-import photo1 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-34-19.png';
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Landingpage.css';
+import"/home/uki-student/Downloads/mine/freshmyf-main/src/component/Landingpage.css"; // Ensure this path is correct
 
-
+// Import images from the public folder or as modules
+import photo1 from './photos/Screenshot from 2024-09-09 11-34-19.png';
+import photo2 from './photos/Screenshot from 2024-09-09 11-31-31.png';
+import photo3 from './photos/Screenshot from 2024-09-09 11-27-49.png';
+import photo4 from './photos/Screenshot from 2024-09-09 11-33-31.png';
+import photo5 from './photos/Screenshot from 2024-09-09 11-25-26.png';
+import photo6 from './photos/Screenshot from 2024-09-09 11-32-02.png'
 
 function LandingPage() {
   const navigate = useNavigate();

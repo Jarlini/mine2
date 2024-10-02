@@ -41,7 +41,7 @@ const NavHome = () => {
               <strong>Photos:</strong>
               <div className="trip-photos">
                 {trip.photos.map((photo, index) => (
-                  <imgage
+                  <img
                     key={index}
                     src={photo}
                     alt={`Trip photo ${index + 1}`}
@@ -49,11 +49,11 @@ const NavHome = () => {
                   />
                 ))}
               </div>
-            </div>
-            <button className="join-button" onClick={handleJoinClick}>Join with Us</button> {/* Added onClick handler */}
+            </div> <br/> 
+            <button className="join-button" onClick={handleJoinClick}>Join with Us</button>
           </div>
         ))}
-      </div>
+      </div> <br/> <br/>
     </div>
   );
 };
