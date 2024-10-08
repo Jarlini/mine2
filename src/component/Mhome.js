@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from './Api'; // Use the axios instance with token
 import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Mhome.css';
+
 const MHome = () => {
   const [trips, setTrips] = useState([]);
   const [editingTrip, setEditingTrip] = useState(null);
@@ -21,7 +22,6 @@ const MHome = () => {
         console.error("Error fetching trips:", err);
       }
     };
-
     fetchTrips();
   }, []);
 
@@ -66,51 +66,72 @@ const MHome = () => {
   return (
     <div>
       <h2>Available Trips</h2>
-      <ul>
-        {trips.map((trip) => (
-          <li key={trip._id}>
-            <h3>{trip.title} - {trip.location} - {trip.days} days</h3>
-            <p>Schedule: {trip.schedule}</p>
-            <p>Photos:</p>
-            <ul>
-              {trip.photos.map((photo, index) => (
-                <li key={index}><image src={photo} alt={`Trip photo ${index + 1}`} style={{ width: '100px', height: 'auto' }} /></li>
-              ))}
-            </ul>
-            <button onClick={() => handleDeleteTrip(trip._id)}>Delete</button>
-            <button onClick={() => handleEditTrip(trip)}>Edit</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Days</th>
+            <th>Schedule</th>
+            <th>Photos</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {trips.map((trip) => (
+            <tr key={trip._id}>
+              <td>{trip.title}</td>
+              <td>{trip.location}</td>
+              <td>{trip.days}</td>
+              <td>{trip.schedule}</td>
+              <td>
+                <ul className="photo-list">
+                  {trip.photos.map((photo, index) => (
+                    <li key={index}>
+                      <img src={photo} alt={`Trip photo ${index + 1}`} className="trip-photo" />
+                    </li>
+                  ))}
+                </ul>
+              </td>
+              <td>
+                <div className="button-container">
+                  <button className="edit-btn" onClick={() => handleEditTrip(trip)}>Edit</button>
+                  <button className="delete-btn" onClick={() => handleDeleteTrip(trip._id)}>Delete</button>
+                </div>
 
-            {editingTrip === trip._id && (
-              <div>
-                <h4>Edit Trip</h4>
-                <form>
-                  <label>
-                    Title:
-                    <input type="text" name="title" value={editForm.title} onChange={handleEditFormChange} />
-                  </label>
-                  <label>
-                    Location:
-                    <input type="text" name="location" value={editForm.location} onChange={handleEditFormChange} />
-                  </label>
-                  <label>
-                    Days:
-                    <input type="number" name="days" value={editForm.days} onChange={handleEditFormChange} />
-                  </label>
-                  <label>
-                    Schedule:
-                    <textarea name="schedule" value={editForm.schedule} onChange={handleEditFormChange} />
-                  </label>
-                  <label>
-                    Photos (comma-separated URLs):
-                    <input type="text" name="photos" value={editForm.photos.join(',')} onChange={handleEditFormChange} />
-                  </label>
-                  <button type="button" onClick={() => handleSaveEdit(trip._id)}>Save</button>
-                </form>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+                {editingTrip === trip._id && (
+                  <div className="edit-form">
+                    <h4>Edit Trip</h4>
+                    <form>
+                      <label>
+                        Title:
+                        <input type="text" name="title" value={editForm.title} onChange={handleEditFormChange} />
+                      </label>
+                      <label>
+                        Location:
+                        <input type="text" name="location" value={editForm.location} onChange={handleEditFormChange} />
+                      </label>
+                      <label>
+                        Days:
+                        <input type="number" name="days" value={editForm.days} onChange={handleEditFormChange} />
+                      </label>
+                      <label>
+                        Schedule:
+                        <textarea name="schedule" value={editForm.schedule} onChange={handleEditFormChange} />
+                      </label>
+                      <label>
+                        Photos (comma-separated URLs):
+                        <input type="text" name="photos" value={editForm.photos.join(',')} onChange={handleEditFormChange} />
+                      </label>
+                      <button type="button" className="edit-btn" onClick={() => handleSaveEdit(trip._id)}>Save</button>
+                    </form>
+                  </div>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

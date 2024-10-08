@@ -3,12 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Authcontainer.css';  // Ensure this path is correct
-import pic3 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-25-09.png';  // Corrected import statement
+import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Authcontainer.css'; // Ensure this path is correct
+import pic3 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-25-09.png'; // Corrected import statement
 
-axios.defaults.baseURL = 'http://localhost:5000';  // Backend URL
+axios.defaults.baseURL = 'http://localhost:5000'; // Backend URL
 
-function SignInPage () {
+
+function SignInPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -27,9 +28,9 @@ function SignInPage () {
             });
 
             if (response.data.role === 'admin') {
-                navigate('/admin-dashboard');  // Redirect to admin dashboard if admin
+                navigate('/admin-dashboard'); // Redirect to admin dashboard if admin
             } else {
-                navigate('/home');  // Redirect to user home page if not admin
+                navigate('/home'); // Redirect to user home page if not admin
             }
         } catch (err) {
             toast.error('Invalid email or password!', {
@@ -41,15 +42,14 @@ function SignInPage () {
     };
 
     return (
-        <div className="auth-page"> 
-            <div className="container">
-               
-                <div className="left-div">
-                    <img src={pic3} alt="Sign In" />
+        <div className="sign-in-container"> 
+            <div className="sign-in-wrapper">
+                <div className="image-section">
+                    <img src={pic3} alt="Sign In" className="sign-in-image" />
                 </div>
-                <div className="right-div">
-                    <h1>Sign In</h1>
-                    <form onSubmit={handleSignIn}>
+                <div className="form-section">
+                    <h1 className="form-title">Sign In</h1>
+                    <form onSubmit={handleSignIn} className="sign-in-form">
                         <input
                             type="email"
                             name="email"
@@ -57,6 +57,7 @@ function SignInPage () {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            className="email-input"
                         />
                         <input
                             type="password"
@@ -65,11 +66,12 @@ function SignInPage () {
                             required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            className="password-input"
                         />
-                        <button type="submit">Sign In</button>
+                        <button type="submit" className="submit-button">Sign In</button>
                     </form>
-                    <p className="toggle-text">
-                        Don't you have an account? <a href="/auth/signup">Sign Up</a>
+                    <p className="account-toggle-text">
+                        Don't you have an account? <a href="/auth/signup" className="sign-up-link">Sign Up</a>
                     </p>
                 </div>
             </div>

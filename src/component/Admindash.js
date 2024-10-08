@@ -21,7 +21,7 @@ const AdminDashboard = () => {
         let response;
         switch (activeSection) {
           case 'users':
-            response = await api.get('/users');
+            response = await api.get('api/auth/users');
             break;
           case 'trips':
             response = await api.get('/trips');

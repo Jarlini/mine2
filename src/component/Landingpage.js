@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import"/home/uki-student/Downloads/mine/freshmyf-main/src/component/Landingpage.css"; // Ensure this path is correct
-
+import'/home/uki-student/Downloads/mine/freshmyf-main/src/component/Landingpage.css';
 // Import images from the public folder or as modules
 import photo1 from './photos/Screenshot from 2024-09-09 11-34-19.png';
 import photo2 from './photos/Screenshot from 2024-09-09 11-31-31.png';

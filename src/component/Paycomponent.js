@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getPackages } from './Packageapi'; // Ensure this function fetches packages correctly
+import { getPackages } from './Packageapi';
 import { useNavigate } from 'react-router-dom';
 import './packegepage.css';
 
@@ -32,7 +32,6 @@ const PackagesPage = ({ isLoggedIn }) => {
     fetchPackages();
   }, []);
 
-  // Calculate totalAmount based on the cart and number of passengers
   const totalAmount = cart.reduce((total, pkg) => total + pkg.price, 0) * bookingData.numberOfPassengers;
 
   const handleCartToggle = (pkg) => {
@@ -75,10 +74,10 @@ const PackagesPage = ({ isLoggedIn }) => {
 
     if (name.startsWith('passenger-')) {
       passengers[index][name.split('-')[1]] = value;
-      setBookingData({ ...bookingData, passengers });
     } else {
-      setBookingData({ ...bookingData, [name]: value });
+      bookingData[name] = value; // Directly modify bookingData
     }
+    setBookingData({ ...bookingData, passengers });
   };
 
   const handlePassengerCountChange = (e) => {
@@ -89,8 +88,7 @@ const PackagesPage = ({ isLoggedIn }) => {
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
-    const totalAmount = cart.reduce((total, pkg) => total + pkg.price, 0) * bookingData.numberOfPassengers;
-
+  
     const bookingPayload = {
       ...bookingData,
       packages: cart.map((pkg) => ({
@@ -100,22 +98,22 @@ const PackagesPage = ({ isLoggedIn }) => {
       })),
       totalAmount,
     };
-
-    console.log('Booking Payload:', bookingPayload); // Log the payload
-    console.log('Passenger Email:', bookingPayload.passengers.map((p) => p.email)); // Check passenger emails
-
+  
     try {
+      // First, save the booking to the backend
       const response = await fetch('http://localhost:3000/api/bookings/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingPayload),
       });
-
+  
       if (response.ok) {
-        alert('Booking successful!');
-        navigate('/payment');
+        alert('Booking successful! Proceeding to payment...');
+        
+        // Trigger PayHere payment
+        handlePayment(); // Call the PayHere payment function
       } else {
-        const errorData = await response.json(); // Log error response
+        const errorData = await response.json();
         console.error('Booking error:', errorData);
         alert('Failed to create booking. Please try again.');
       }
@@ -124,6 +122,39 @@ const PackagesPage = ({ isLoggedIn }) => {
       alert('Error occurred while submitting the booking. Please try again.');
     }
   };
+
+  // PayHere payment logic
+  const handlePayment = () => {
+    if (typeof payhere !== 'undefined') {
+      const orderId = `ORDER_${Date.now()}`;
+      const payment = {
+        sandbox: true,
+        merchant_id: '1228351',
+        return_url: 'http://localhost:3000/payment/success',
+        cancel_url: 'http://localhost:3000/payment/cancel',
+        notify_url: 'http://localhost:5000/payment/notify',
+        order_id: orderId,
+        items: cart.map((pkg) => pkg.name).join(', '),
+        amount: totalAmount,
+        currency: 'LKR',
+        first_name: bookingData.passengers[0].name,
+        last_name: '',
+        email: bookingData.passengers[0].email,
+        phone: bookingData.phone,
+        address: bookingData.address,
+        city: 'Colombo',
+        country: 'Sri Lanka',
+        merchant_secret: 'MjQ0NDQwNDE0OTExOTY1NjAyOTkzMTYzNDA4NTEzMjkzODA0OTcxMg==',
+      };
+  
+      // Start the payment process
+      payhere.startPayment(payment);
+    } else {
+      console.error('PayHere is not defined');
+      alert('Payment system is not available. Please try again later.');
+    }
+  };
+  
 
   return (
     <div className="packages-container">
@@ -139,7 +170,7 @@ const PackagesPage = ({ isLoggedIn }) => {
       ))}
 
       <div className="cart">
-        <h2>Cart</h2>
+      <h2 style={{ color: 'black' }}>Cart</h2>
         {cart.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
@@ -193,7 +224,8 @@ const PackagesPage = ({ isLoggedIn }) => {
 
       {showBookingForm && (
         <div className="booking-form">
-          <h2>Booking Form</h2>
+        <h2 style={{ color: 'black' }}>Booking Form</h2>
+
           <form onSubmit={handleBookingSubmit}>
             <label>
               Number of Passengers:
@@ -205,10 +237,11 @@ const PackagesPage = ({ isLoggedIn }) => {
                 onChange={handlePassengerCountChange}
               />
             </label>
+
             {bookingData.passengers.map((passenger, index) => (
               <div key={index}>
                 <label>
-                  Name:
+                  Passenger Name:
                   <input
                     type="text"
                     name={`passenger-name-${index}`}
@@ -218,7 +251,7 @@ const PackagesPage = ({ isLoggedIn }) => {
                   />
                 </label>
                 <label>
-                  Age:
+                  Passenger Age:
                   <input
                     type="number"
                     name={`passenger-age-${index}`}
@@ -228,7 +261,7 @@ const PackagesPage = ({ isLoggedIn }) => {
                   />
                 </label>
                 <label>
-                  Email:
+                  Passenger Email:
                   <input
                     type="email"
                     name={`passenger-email-${index}`}
@@ -239,6 +272,7 @@ const PackagesPage = ({ isLoggedIn }) => {
                 </label>
               </div>
             ))}
+
             <label>
               Address:
               <input
@@ -259,22 +293,14 @@ const PackagesPage = ({ isLoggedIn }) => {
                 required
               />
             </label>
-            <label>
-              Payment Method:
-              <select
-                name="paymentMethod"
-                value={bookingData.paymentMethod}
-                onChange={handleBookingFormChange}
-              >
-                <option value="Total Payment">Total Payment</option>
-              </select>
-            </label>
-            <button type="submit">Book Now</button>
+
+            <button type="submit">Submit Booking</button> <br/> <br/> <br/>
           </form>
-          <h1>Hi! Thanks for joining us. If you pay for this, we will add the group.</h1>
         </div>
-      )}
+      )}    <div id="payhere-form" data-pay-id="o38e69c82" data-type="SANDBOX"></div>
+      <script src="https://sandbox.payhere.lk/payhere.pay.button.js" id="payhere-button"></script>
     </div>
+ 
   );
 };
 

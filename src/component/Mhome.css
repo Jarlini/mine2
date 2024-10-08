@@ -1,111 +1,116 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-  }
-  
-  /* User List Styles */
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px auto;
-    max-width: 600px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  li h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: #333;
-  }
-  
-  li p {
-    margin: 8px 0;
-    color: #555;
-  }
-  
-  /* Button Container for Alignment */
-  .button-container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px; /* Space between buttons */
-    margin-top: 15px; /* Space between content and buttons */
-  }
-  
-  /* Button Styles */
-  button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-right: 10px;
-  }
-  
-  button:hover {
-    opacity: 0.9;
-  }
-  
-  /* Delete Button */
-  button.delete-btn {
-    background-color: #FFA07A;
-    color: #fff;
-  }
-  
-  /* Edit Button */
-  button.edit-btn {
-    background-color: #FFA07A;
-    color: #fff;
-  }
-  
-  /* Edit Form Styles */
-  form {
-    margin-top: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 600px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px auto;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  form input, form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  form button {
-    background-color: #FFA07A;
-    color: #fff;
-    font-size: 14px;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-size: 18px;
+}
+
+td {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Photo Styles */
+.photo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.photo-list li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.trip-photo {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Button Styles */
+button {
+  padding: 8px 12px; /* Smaller padding */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+  width: auto; /* Ensures the button adapts to its content size */
+  display: inline-block; /* Ensures button width adjusts to content */
+}
+
+
+button.delete-btn {
+  background-color: #FFA07A;
+}
+
+button.edit-btn {
+  background-color: #FFA07A;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Edit Form Styles */
+.edit-form {
+  margin-top: 20px;
+}
+
+form {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}

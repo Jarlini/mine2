@@ -1,47 +1,46 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #FFF6F0; /* Very light orange background */
+  background-color: #a04a11; /* Very light orange background */
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+   margin: 0;}
+
+/* Sign In/Sign Up Container */
+.sign-in-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-  margin: 0;
+  height: 600px;
 }
 
-/* Auth Container */
-.auth-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-
-}
-.container {
-  margin-top: 20px; /* Slight top margin to push container from the top */
+/* Wrapper for Form and Image */
+.sign-in-wrapper {
   display: flex;
   width: 120%;
   max-width: 1200px;
   min-height: 600px; /* Ensure the container has a minimum height */
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(255, 154, 139, 0.5); /* Custom box-shadow with the specified color */
   background: #FFFFFF; /* White background for the container */
-  justify-content: space-between; /* Spacing between image and form */
-  align-items: center; /* Center items vertically */
 }
 
 /* Image Section */
-.left-div {height:600px;
+.image-section {
   flex: 1;
-  /* background: url('/path/to/your/image.png') no-repeat center center;
-  background-size: cover; */
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
 }
 
+.sign-in-image {
+  width: 100%; /* Responsive image */
+  height: auto;
+}
+
 /* Form Section */
-.right-div {height:600px;
-  width: 600px;
+.form-section {
   flex: 1;
   padding: 30px;
   display: flex;
@@ -51,70 +50,70 @@ body {
   background-color: #FFFFFF;
 }
 
-/* Form Box */
-h1 {
+/* Form Title */
+.form-title {
   margin-bottom: 20px;
   color: #c64837; /* Coral color for the heading */
   font-size: 36px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
-/* Form Elements */
-form {
-  width: 120%;
+/* Form (Sign In/Sign Up) */
+.sign-in-form {
+  width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px; /* Space between form elements */
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+/* Form Inputs */
+.username-input,.email-input, .password-input, .input-field {
+  width: 250px; /* Custom width for all input fields */
   padding: 12px;
-  border: 2px solid #FF9A8B; /* Light coral border for inputs */
+  border: 2px solid #FF9A8B; /* Light coral border */
   border-radius: 12px;
   outline: none;
   font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5); /* Coral-colored box-shadow */
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus {
-  border-color: #FFA07A; /* Deep orange border on focus */
+.username-input.email-input:focus, .password-input:focus, .input-field:focus {
+  border-color: #FF9A8B; /* Focus effect with same color */
+  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.75); /* Darker coral box-shadow on focus */
 }
 
-button {
-  padding: 12px;
-  font-size: 18px;
-  background-color:#FFA07A; /* Coral background for the button */
+/* Submit Button */
+.signin-button {
+  width: 25px;
+  padding: 128px;
+  font-size: 189px;
+  background-color: #FFA07A; /* Coral background for the button */
   color: #FFFFFF;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5); /* Coral-colored box-shadow */
 }
 
-button:hover {
-  background-color:  #f5a623; /* Deep orange on hover */
+.submit-button:hover {
+  background-color: #f5a623; /* Darker coral on hover */
 }
 
 /* Toggle Link */
-.toggle-text {
-  margin-top: 400px;
-  margin-right:4px;
+.account-toggle-text {
+  margin-top: 20px;
   text-align: center;
   font-size: 14px;
 }
 
-.toggle-text a {
+.sign-up-link {
   color: #c64837; /* Coral color for the link */
   text-decoration: none;
   font-weight: bold;
 }
 
-.toggle-text a:hover {
+.sign-up-link:hover {
   text-decoration: underline;
 }
 

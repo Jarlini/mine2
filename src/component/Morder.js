@@ -34,6 +34,7 @@ const MOrder = () => {
   return (
     <div className="m-order">
       <h2>Manage Orders</h2>
+      <h2>Manage Orders</h2>
       {orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (

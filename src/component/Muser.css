@@ -6,44 +6,42 @@ h2 {
   margin-bottom: 20px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-bottom: 20px;
-  padding: 20px;
-  position: relative;
 }
 
-h3 {
-  font-size: 22px;
-  color: #555;
-  margin-bottom: 10px;
+.user-table th, .user-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-p {
+.user-table th {
+  background-color: #f2f2f2;
+  font-size: 18px;
+}
+
+.user-table td {
   font-size: 16px;
-  color: #777;
+  color: #555;
 }
 
 .button-container {
   display: flex;
-  gap: 10px; /* Spacing between the buttons */
-  margin-top: 15px; /* Space between the user details and the buttons */
+  gap: 10px;
 }
-
 button {
   border: none;
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
+  font-size: 14px;
   transition: background-color 0.3s ease;
+  background-color: #FFA07A; /* Set the default button color */
+  color: white;
 }
 
 button:hover {
@@ -54,49 +52,23 @@ button:active {
   transform: scale(0.98);
 }
 
-/* Delete button - red color */
+/* Delete button */
 button.delete-button {
-  background-color: #FFA07A;
+  background-color: #FFA07A; /* Use the same color for the delete button */
   color: white;
 }
 
-/* Edit button - green color */
+/* Edit button */
 button.edit-button {
-  background-color: #FFA07A;
+  background-color: #FFA07A; /* Use the same color for the edit button */
   color: white;
 }
 
 /* Styling for the edit form */
-form {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #666;
-}
-
-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #333;
-}
-
 form button {
   width: 100%;
   padding: 10px;
-  background-color: #FFA07A;
+  background-color: #FFA07A; /* Use the same color for the form submit button */
   color: white;
   font-size: 16px;
   border: none;
@@ -104,5 +76,5 @@ form button {
 }
 
 form button:hover {
-  background-color: #0056b3;
+  background-color: #FF8C66; /* Slightly darker on hover */
 }

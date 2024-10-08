@@ -1,100 +1,12 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
-// import { toast, ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import './Authcontainer.css';
-// import pic from './photos/Screenshot from 2024-09-09 11-24-59.png';
-// axios.defaults.baseURL = 'http://localhost:5000';
-
-// function SignUpPage() {
-//     const [username, setUsername] = useState('');
-//     const [email, setEmail] = useState('');
-//     const [password, setPassword] = useState('');
-//     const navigate = useNavigate();
-
-//     const handleSignUp = async (e) => {
-//         e.preventDefault();
-//         try {
-//             const response = await axios.post('/api/auth/register', { username, email, password });
-//             console.log(response);  // Ensure successful registration response
-//             localStorage.setItem('token', response.data.token);
-
-//             toast.success('Registration Successful! Please Sign In...', {
-//                 position: "top-right",
-//                 autoClose: 5000,
-//                 theme: "colored",
-//             });
-
-//             setTimeout(() => {
-//                 navigate('/auth/signin');  // Delayed navigation
-//             }, 1000);
-//         } catch (err) {
-//             const errorMessage = err.response?.data?.message || 'Registration failed. Please try again.';
-//             console.error('Error:', errorMessage);
-//             toast.error(errorMessage, {
-//                 position: "top-right",
-//                 autoClose: 5000,
-//                 theme: "colored",
-//             });
-//         }
-//     };
-
-//     return (
-//         <div className="auth-page">
-//             <div className="container">
-//                 <div className="left-div">
-//                     <img src={pic} alt="Decorative" />
-//                 </div>
-//                 <div className="right-div">
-//                     <h1>Create Account</h1>
-//                     <form onSubmit={handleSignUp}>
-//                         <input
-//                             type="text"
-//                             name="username"
-//                             placeholder="Username"
-//                             required
-//                             value={username}
-//                             onChange={(e) => setUsername(e.target.value)}
-//                         />
-//                         <input
-//                             type="email"
-//                             name="email"
-//                             placeholder="Email"
-//                             required
-//                             value={email}
-//                             onChange={(e) => setEmail(e.target.value)}
-//                         />
-//                         <input
-//                             type="password"
-//                             name="password"
-//                             placeholder="Password"
-//                             required
-//                             value={password}
-//                             onChange={(e) => setPassword(e.target.value)}
-//                         />
-//                         <button type="submit">Sign Up</button>
-//                     </form>
-//                     <p className="toggle-text">
-//                         Already  have an account? <a href="/auth/signin">Sign In</a>
-//                     </p>
-//                 </div>
-//             </div>
-//             <ToastContainer />
-//         </div>
-//     );
-// }
-
-// export default SignUpPage;
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Authcontainer.css';
-import pic from './photos/Screenshot from 2024-09-09 11-24-59.png';
+import './Authcontainer.css'; // Ensure the correct path to your CSS file
+import pic3 from './photos/Screenshot from 2024-09-09 11-24-59.png'; // Adjust the path to the image as needed
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'http://localhost:5000'; // Backend URL
 
 function SignUpPage() {
     const [username, setUsername] = useState('');
@@ -144,14 +56,14 @@ function SignUpPage() {
     };
 
     return (
-        <div className="auth-page">
-            <div className="container">
-                <div className="left-div">
-                    <img src={pic} alt="Decorative" />
+        <div className="sign-in-container"> {/* Reuse the same container styling */}
+            <div className="sign-in-wrapper">
+                <div className="image-section">
+                    <img src={pic3} alt="Sign Up" className="sign-in-image" />
                 </div>
-                <div className="right-div">
-                    <h1>Create Account</h1>
-                    <form onSubmit={handleSignUp}>
+                <div className="form-section">
+                    <h1 className="form-title">Create Account</h1>
+                    <form onSubmit={handleSignUp} className="sign-in-form"> {/* Reuse form classes */}
                         <input
                             type="text"
                             name="username"
@@ -159,6 +71,7 @@ function SignUpPage() {
                             required
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
+                            className="input-field"  // Reuse styling for input fields
                         />
                         <input
                             type="email"
@@ -167,6 +80,7 @@ function SignUpPage() {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            className="input-field"
                         />
                         <input
                             type="password"
@@ -175,12 +89,13 @@ function SignUpPage() {
                             required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            className="input-field"
                             minLength="6"  // HTML5 validation for password length
                         />
-                        <button type="submit">Sign Up</button>
+                        <button type="submit" className="submit-button">Sign Up</button>
                     </form>
-                    <p className="toggle-text">
-                        Already have an account? <a href="/auth/signin">Sign In</a>
+                    <p className="account-toggle-text">
+                        Already have an account? <a href="/auth/signin" className="sign-up-link">Sign In</a>
                     </p>
                 </div>
             </div>
