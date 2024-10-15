@@ -1,14 +1,17 @@
-/* Container for all packages with background image */
+ /* Container for all packages with background image */
+ /* Container for all packages with background image */
 .packages-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
   gap: 20px;
   padding: 20px;
   background-image: url('/home/uki-student/Documents/fresh/frontend/myproject/src/component/photos/download (5).jpeg'); /* Add background image */
   background-size: cover; /* Make sure the image covers the whole area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
-  min-height: 1vh; /* Ensure full screen height for large backgrounds */
+  height: 75vh; 
+  width: 100%; /* Full width */
+  background-color: #71b0f3;
 }
 
 /* Individual package card */
@@ -27,7 +30,6 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Package title */
 .package h2 {
   font-size: 1.5rem;
   color: #080606;
@@ -135,7 +137,7 @@
 }
 .cart {
   margin-top: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #f0aaaa;
   padding: 10px;
 }
 
@@ -221,14 +223,16 @@ button:hover {
 }
 
 .cancel-button {
-  background-color: #dc3545;
+  background-color: #c82333;
   color: #fff;
-  padding: 10px 20px;
+  padding: 100px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .cancel-button:hover {
   background-color: #c82333;
 }
+

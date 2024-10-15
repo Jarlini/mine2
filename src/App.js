@@ -7,10 +7,9 @@ import SignIn from './component/SignInPage'; // Replace with your actual compone
 import SignUp from './component/SignUpPage'; // Replace with your actual component path
 import PackagesPage from './component/Paycomponent'; // Replace with your actual component path
 import Footer from './component/Footer';
-import AdminDashboard from './component/Admindash';
-// import PaymentSuccess from './PaymentSuccess'; // Create this component
-// import PaymentFailure from './PaymentFailure'; // Create this component
-// import PaymentCancel from './PaymentCancel'; // Create this component
+import AdminDashboard from './component/Admindash'
+
+
 
 
 function App() {
@@ -24,9 +23,7 @@ function App() {
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/packege" element={<PackagesPage />} />
         <Route path="/admin-dashboard" element={< AdminDashboard/>} />
-        {/* <Route path="/payment/success" element={<PaymentSuccess />} /> */}
-                {/* <Route path="/payment/failure" element={<PaymentFailure />} />
-                <Route path="/payment/cancel" element={<PaymentCancel />} /> */}
+     
       </Routes>
       < Footer />
     </Router>

@@ -16,7 +16,7 @@ function Navbar() {
         <Link to="/auth/signin" className="nav-button"> Sign In</Link>
         <Link to="/auth/signup" className="nav-button">Sign Up </Link>
         <Link to="/packege" className="nav-button">packege </Link>
-     
+      
       </div>
     </nav>
   );
