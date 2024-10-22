@@ -1,65 +1,137 @@
-/* .payment-container {
-    max-width: 4000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-   */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .payment-form {
+.payment-page {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/wall9.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 2100px;
+    
   }
   
-  .form-group {
-    margin-bottom: 15px;
+  .cart-summary {
+    width: 25%; /* Smaller box */
+    background-color:   #fff5e6;
+    padding: 10px; /* Smaller padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow:orange; /* Soft box shadow */
+    margin: 0 auto; /* Centers the box */
+    text-align: center; /* Centers text inside the box */
+    height:65%;
   }
   
-  label {
-    font-size: 14px;
-    color: #555;
-  }
   
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .payment-button {
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .payment-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .payment-status {
+  .cart-summary h2 {
+    color: #ff7f50;
+    font-size: 1.4rem; /* Slightly smaller heading */
+    margin-bottom: 10px;
     text-align: center;
-    margin-top: 20px;
+  }
+  
+  .cart-summary ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cart-summary li {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  h3 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Adjust the booking form to remain consistent */
+  .booking-form {
+    width: 25%; 
+    background-color:  #fff5e6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form label {
+    display: block;
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .booking-form input {
+    width: 250px; /* Custom width for all input fields */
+    padding: 12px;
+    border: 2px solid #FF9A8B; /* Light coral border */
+    border-radius: 12px;
+    outline: none;
     font-size: 16px;
-    color: #28a745;
+    box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5);
+  }
+  
+  .booking-form input:focus {
+    border-color: #ff7f50;
+  }
+  
+  .booking-form button {
+    background-color: #f5a623;
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .booking-form button:hover {
+    background-color: #FF5252;
+    transform: scale(1.05);
+  }
+  
+  .booking-form div {
+    margin-bottom: 20px;
+  }
+  .animated-message {
+    color: #f5a623; /* Orange color */
+    font-size: 18px;
+    margin: 20px 0; /* Add some margin */
+    opacity: 0; /* Initial opacity for fade-in effect */
+    transform: translateY(20px); /* Start slightly lower */
+    animation: fadeIn 0.5s forwards; /* Animation effect */
+  }
+  
+  /* Define keyframes for the fade-in effect */
+  @keyframes fadeIn {
+    to {
+      opacity: 1; /* Final opacity */
+      transform: translateY(0); /* Move to the original position */
+    }
+  }
+  .paypal-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Space above the PayPal button */
+  }
+  
+  .payment-page {
+    padding: 20px; /* Optional padding for the payment page */
+  }
+  
+  .cart-summary {
+    margin-bottom: 20px; /* Space between cart summary and booking form */
+  }
+  
+  .animated-message {
+    font-style: italic; /* Style for the animated message */
+    margin-top: 10px; /* Space above the message */
   }
   

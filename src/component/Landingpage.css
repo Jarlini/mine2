@@ -1,85 +1,260 @@
-/* Landing Page Styles */
 .landing-page {
-  padding: 20px;
-  background-color: #f0f8ff; /* Light background for a cute look */
+  min-height: 100vh;
+  background-color: #EBF5FF;
+  padding-top: 80px;
 }
 
-.content {
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-section {
   display: flex;
-  justify-content: space-between; 
-   align-items: flex-start; }
-
-.left-div { 
-  margin-top: 150px;
-  width: 50%;
-  padding-right: 20px; /* Add space between text and images */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 64px;
 }
 
-.right-div {
-  margin-top: 70px;
-  width: 50%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for the images */
-  grid-template-rows: repeat(2, 1fr); /* 2 rows for the images */
-  gap: 1px; /* Space between images */
-  padding: 1px; /* Add padding around the image grid */
-  box-sizing: border-box; /* Ensure padding doesn't affect overall width */
-}
-
-.right-div img {
-  
-  width: 100%; /* Make images take up the full width of their grid cell */
-  height: 300px; /* Adjust height to fit two rows */
-  border-radius: 10px; /* Rounded corners for the images */
-  box-shadow: 0px 4px 6px rgba(219, 40, 8, 0.1); /* Add a soft shadow for a neat effect */
-  background-color: rgb(255, 255, 255); /* Optional: Background color to enhance padding effect */
-  object-fit: cover; /* Ensure images cover the area without distortion */
-}
-
-.home-button {
-  margin-top: 20px;
-  margin-left: 700px;
-  background-color: #FFA07A; /* Cute orange color */
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px; /* Increase font size for better readability */
-}
-
-.home-button:hover {
-  background-color:  #f5a623; /* Darker orange for hover effect */
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #008080; /* Teal color for footer */
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
+.hero-content {
   width: 100%;
-  bottom: 0;
+  margin-bottom: 32px;
 }
 
-/* Animation Styles */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+.hero-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: #FF6B6B;
+  margin-bottom: 24px;
+  text-align: center;
+  transition: transform 0.5s ease, color 0.5s ease; /* Add transition */
+}
+
+.hero-title:hover {
+  transform: scale(1.1); /* Slightly increase the size on hover */
+  color: #FF5252; /* Change color on hover */
+}
+
+.hero-text {
+  font-size: 28px;
+  color: #080b11;
+  margin-bottom: 32px;
+}
+
+.explore-button {
+  background-color: #f5a623;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.explore-button:hover {
+  background-color: #FF5252;
+  transform: scale(1.05);
+}
+
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  width: 300px; /* Increase width */
+  height: 300px; /* Increase height */
+}
+
+.hero-image {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  object-fit: cover;
+  height: 300px; /* Increase image height */
+  width: 300px;   /* Full width */
+}
+
+.hero-image:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 
-.welcome-text {
-  font-size: 58px;              /* Large font size */
-  color:#FFA07A;               /* Coral color */
-  text-align: center;            /* Centered text */
-  margin-bottom: 20px;           /* Add space below the heading */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Soft text shadow */
-  animation: fadeIn 2s ease-in-out;
-  font-weight: bold;}
+.section-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #FF6B6B;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.section{
+background-color: #93b3f3;
+}
+
+.section-description {
+  font-size: 20px;
+  color: #020305;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.reasons-section, .trips-section {
+  margin-bottom: 64px;
+}
+
+.reasons-grid, .trips-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 32px;
+}
+
+.reason-card, .trip-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover, .trip-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.reason-image, .trip-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.reason-text, .trip-detail {
+  color: #4A5568;
+  font-size: 20px;
+}
+
+.trip-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #FF6B6B;
+  margin-bottom: 8px;
+}
+
+.trip-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+  
+ 
+}
+
+
+.join-button {
+  background-color: #f5a623;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.join-button:hover {
+  background-color: #FF5252;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+  }
+
+  .hero-content {
+    width: 50%;
+  }
+
+  .hero-title {
+    text-align: left;
+  }
+
+  .explore-button {
+    margin: 0;
+  }
+
+  .hero-images {
+    width: 50%;
+  }
+
+  .reasons-grid, .trips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .reasons-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .trips-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 
+.how-we-work-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.left-container {
+  flex: 1;
+  padding: 10px;
+}
+
+.right-container {
+  flex: 1;
+  padding: 10px;
+}
+
+.work-image {
+  width: 500px;
+  height:300px;
+  border-radius: 10px;
+}
+
+.right-container h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #FF6B6B;
+  font-style: italic;
+}
+
+.right-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.right-container ul li {
+  font-size: 25px;
+  margin-bottom: 10px;
+  position: relative;
+  color: #0a0404;
+}
+
+.right-container ul li::before {
+  content: '•';
+  color: #f5a623;
+  font-size: 30px;
+  position: absolute;
+  left: -30px;
+  top: -5px;
+}

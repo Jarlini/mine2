@@ -16,14 +16,11 @@ export const getPackages = async () => {
   }
 };
 
-const addPackage = async (newPackage) => {
+const addPackage = async (formData) => {
   try {
-    const response = await fetch('http://localhost:5000/api/packages', {
+    const response = await fetch('/api/packages', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newPackage),
+      body: formData,
     });
     if (!response.ok) {
       throw new Error('Failed to add package');
@@ -35,14 +32,11 @@ const addPackage = async (newPackage) => {
   }
 };
 
-const updatePackage = async (id, updatedPackage) => {
+const updatePackage = async (id, formData) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/packages/${id}`, {
+    const response = await fetch(`/api/admin/packages${id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedPackage),
+      body: formData,
     });
     if (!response.ok) {
       throw new Error('Failed to update package');
@@ -73,6 +67,7 @@ export const deletePackage = async (packageId) => {
 const PackageManager = () => {
   const [packages, setPackages] = useState([]);
   const [newPackage, setNewPackage] = useState({ name: '', description: '', price: '' });
+  const [selectedPhotos, setSelectedPhotos] = useState(null);
   const [editingPackageId, setEditingPackageId] = useState(null);
 
   useEffect(() => {
@@ -91,30 +86,31 @@ const PackageManager = () => {
       return;
     }
 
-    if (editingPackageId) {
-      const updatedPackage = await updatePackage(editingPackageId, {
-        name: newPackage.name,
-        description: newPackage.description,
-        price: Number(newPackage.price),
-      });
+    const formData = new FormData();
+    formData.append('name', newPackage.name);
+    formData.append('description', newPackage.description);
+    formData.append('price', newPackage.price);
+    if (selectedPhotos) {
+      for (let i = 0; i < selectedPhotos.length; i++) {
+        formData.append('photos', selectedPhotos[i]);
+      }
+    }
 
+    if (editingPackageId) {
+      const updatedPackage = await updatePackage(editingPackageId, formData);
       if (updatedPackage) {
         setPackages(packages.map((pkg) => (pkg._id === editingPackageId ? updatedPackage : pkg)));
         setEditingPackageId(null);
       }
     } else {
-      const addedPackage = await addPackage({
-        name: newPackage.name,
-        description: newPackage.description,
-        price: Number(newPackage.price),
-      });
-
+      const addedPackage = await addPackage(formData);
       if (addedPackage) {
         setPackages([...packages, addedPackage]);
       }
     }
 
     setNewPackage({ name: '', description: '', price: '' });
+    setSelectedPhotos(null);
   };
 
   const handleDeletePackage = async (id) => {
@@ -140,6 +136,7 @@ const PackageManager = () => {
             <th>Package Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Photos</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -151,6 +148,15 @@ const PackageManager = () => {
                 <td>{pkg.description}</td>
                 <td>Rs. {pkg.price}</td>
                 <td>
+                  {pkg.photos && pkg.photos.length > 0 ? (
+                    pkg.photos.map((photo, index) => (
+                      <img key={index} src={photo} alt={pkg.name} style={{ width: '50px', height: '50px' }} />
+                    ))
+                  ) : (
+                    'No photos available'
+                  )}
+                </td>
+                <td>
                   <button onClick={() => handleEditClick(pkg)} className="action-button">Edit</button>
                   <button onClick={() => handleDeletePackage(pkg._id)} className="action-button">Delete</button>
                 </td>
@@ -158,7 +164,7 @@ const PackageManager = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="4">No packages available</td>
+              <td colSpan="5">No packages available</td>
             </tr>
           )}
         </tbody>
@@ -182,6 +188,11 @@ const PackageManager = () => {
         placeholder="Price"
         value={newPackage.price}
         onChange={(e) => setNewPackage({ ...newPackage, price: e.target.value })}
+      />
+      <input
+        type="file"
+        multiple
+        onChange={(e) => setSelectedPhotos(e.target.files)}
       />
       <div className="button-container">
         <button className="main-button" onClick={handlePackageAction}>

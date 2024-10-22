@@ -23,13 +23,13 @@ h2 {
 input[type="text"],
 input[type="number"],
 input[type="file"] {
-  width: 100%; /* Full width */
-  padding: 10px; /* Space inside the input */
-  margin: 10px 0; /* Space above and below */
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 5px; /* Rounded corners */
-  box-sizing: border-box; /* Include padding in width */
-  font-size: 16px; /* Font size */
+  width: 250px; /* Custom width for all input fields */
+  padding: 12px;
+  border: 2px solid #FF9A8B; /* Light coral border */
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5);
 }
 
 /* File input styling */
@@ -39,21 +39,23 @@ input[type="file"] {
 
 /* Submit button */
 button[type="submit"] {
-  width: 100%; /* Full width */
-  padding: 15px; /* Large padding */
-  margin-top: 20px; /* Space above */
-  background-color: #FFA07A; /* Green background */
-  color: #fff; /* White text */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 18px; /* Font size */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease; /* Smooth background transition */
+  background-color: #f5a623;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  max-width: 200px; /* Adjust this value to decrease the width */
+  width: 100%; /* Smooth background transition */
 }
 
 /* Button hover effect */
 button[type="submit"]:hover {
-  background-color:  #f5a623; /* Darker green on hover */
+  background-color: #FF5252;
+  transform: scale(1.05); /* Darker green on hover */
 }
 
 /* Responsive styling */

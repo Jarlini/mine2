@@ -67,7 +67,7 @@ button {
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
-  color: white;
+  color:  #fff5e6;
   width: auto; /* Ensures the button adapts to its content size */
   display: inline-block; /* Ensures button width adjusts to content */
 }

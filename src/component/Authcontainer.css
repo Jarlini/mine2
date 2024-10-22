@@ -84,20 +84,21 @@ body {
 }
 
 /* Submit Button */
-.signin-button {
-  width: 25px;
-  padding: 128px;
-  font-size: 189px;
-  background-color: #FFA07A; /* Coral background for the button */
-  color: #FFFFFF;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5); /* Coral-colored box-shadow */
+.submit-button{
+  background-color: #f5a623;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto; /* Coral-colored box-shadow */
 }
 
 .submit-button:hover {
-  background-color: #f5a623; /* Darker coral on hover */
+  background-color: #FF5252;
+  transform: scale(1.05); /* Darker coral on hover */
 }
 
 /* Toggle Link */

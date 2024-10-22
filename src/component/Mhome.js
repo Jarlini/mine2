@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from './Api'; // Use the axios instance with token
+import api from './Api'; // Axios instance with token
 import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Mhome.css';
 
 const MHome = () => {
@@ -53,16 +53,40 @@ const MHome = () => {
     }));
   };
 
+  const handleFileChange = (e) => {
+    setEditForm(prev => ({
+      ...prev,
+      photos: [...e.target.files] // Handle file uploads
+    }));
+  };
   const handleSaveEdit = async (tripId) => {
     try {
-      await api.put(`/trips/${tripId}`, editForm);
+      const formData = new FormData();
+      formData.append('title', editForm.title);
+      formData.append('location', editForm.location);
+      formData.append('days', editForm.days);
+      formData.append('schedule', editForm.schedule);
+      
+      // If new photos are uploaded
+      if (editForm.photos && editForm.photos.length) {
+        editForm.photos.forEach((photo, index) => {
+          formData.append(`photos[${index}]`, photo);
+        });
+      }
+  
+      const res = await api.put(`/trips/update/${tripId}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
       setTrips(trips.map(trip => trip._id === tripId ? { ...trip, ...editForm } : trip));
       setEditingTrip(null);
     } catch (err) {
       console.error("Error updating trip:", err);
     }
   };
-
+  
   return (
     <div>
       <h2>Available Trips</h2>
@@ -120,8 +144,8 @@ const MHome = () => {
                         <textarea name="schedule" value={editForm.schedule} onChange={handleEditFormChange} />
                       </label>
                       <label>
-                        Photos (comma-separated URLs):
-                        <input type="text" name="photos" value={editForm.photos.join(',')} onChange={handleEditFormChange} />
+                        Photos (upload new photos):
+                        <input type="file" multiple onChange={handleFileChange} />
                       </label>
                       <button type="button" className="edit-btn" onClick={() => handleSaveEdit(trip._id)}>Save</button>
                     </form>
