@@ -1,55 +1,45 @@
- /* Container for all packages with background image */
- /* Container for all packages with background image */
+/* Custom CSS for PackagesPage */
 .packages-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
-  gap: 20px;
-  padding: 20px;
-  background-image: url('/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-10-15 15-40-41.png'); /* Add background image */
-  background-size: cover; /* Make sure the image covers the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  height: 75vh; 
-  width: 100%; /* Full width */
-  background-color: #71b0f3;
+  background-color: #f0f8ff;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Individual package card */
-.package {
-  background-color: rgba(255, 255, 255, 0.9); /* Add slight transparency */
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+h1 {
+  color: #008080;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 128, 128, 0.2);
+}
+
+.package {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 128, 128, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .package:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .package h2 {
-  font-size: 1.5rem;
-  color: #080606;
-  margin-bottom: 10px;
+  color: #ff7f50;
+  margin-bottom: 1rem;
 }
 
-/* Package description */
 .package p {
-  font-size: 1rem;
-  color: #666;
-  margin: 10px 0;
+  color: #4a4a4a;
+  margin-bottom: 0.5rem;
 }
 
-/* Price styling */
-.package p:last-of-type {
-  font-weight: bold;
-  color: #000;
+.package img {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(255, 127, 80, 0.2);
 }
 
-/* Pay Now button */
 .package button {
   background-color: #f5a623;
   color: white;
@@ -58,183 +48,112 @@
   border-radius: 9999px;
   font-size: 18px;
   transition: all 0.3s ease;
-  display: block;
-  margin: 0 auto;
+  display: inline-block; /* Retain block-like properties */
 }
+
 
 .package button:hover {
   background-color: #FF5252;
   transform: scale(1.05);
 }
 
-/* Modal Styles */
+
+.selected-packages {
+  background-color: #fff5e6;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px rgba(255, 127, 80, 0.1);
+}
+
+.selected-packages h3 {
+  color: #ff7f50;
+  margin-bottom: 1rem;
+}
+
+.selected-packages ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.selected-packages li {
+  color: #4a4a4a;
+  margin-bottom: 0.5rem;
+}
+
+.selected-packages button {
+  background-color: #ff7f50;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selected-packages button:hover {
+  background-color: #ff6347;
+}
+
 .agreement-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .agreement-content {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 128, 128, 0.2);
 }
 
 .agreement-content h2 {
-  margin-bottom: 15px;
+  color: #008080;
+  margin-bottom: 1rem;
 }
 
 .agreement-content p {
-  font-size: 1rem;
-  color: #444;
-  
+  color: #4a4a4a;
+  margin-bottom: 1rem;
 }
 
 .agreement-content ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
 }
 
-.agreement-content ul li {
-  margin: 10px 0;
-  text-align: left;
+.accept-button, .cancel-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .accept-button {
-  background-color: #FFA07A;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
+  background-color: #008080;
+  color: #ffffff;
+  margin-right: 1rem;
 }
 
 .accept-button:hover {
-  background-color: #FFA07A;
+  background-color: #006666;
 }
 
 .cancel-button {
-  background-color: #dc3545;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: #ff7f50;
+  color: #ffffff;
 }
 
 .cancel-button:hover {
-  background-color: #c82333;
+  background-color: #ff6347;
 }
-.cart {
-  margin-top: 20px;
-  border: 1px solid #f0aaaa;
-  padding: 10px;
-}
-
-.agreement-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.agreement-content {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 300px;
-}
-/* Styling for all input fields */
-input {
-  width: 250px; /* Custom width for all input fields */
-  padding: 12px;
-  border: 2px solid #FF9A8B; /* Light coral border */
-  border-radius: 12px;
-  outline: none;
-  font-size: 16px;
-  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5); /* Coral-colored box-shadow */
-  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-}
-
-/* Focus state for input fields */
-input:focus {
-  border-color: #FF9A8B; /* Focus effect with same color */
-  box-shadow: 0 6px 12px rgba(255, 154, 139, 0.6); /* Enhanced shadow on focus */
-}
-
-/* Styling for all buttons */
-button {
-  width: 250px; /* Matching width for buttons */
-  padding: 12px;
-  background-color: #FF9A8B; /* Light coral background */
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(255, 154, 139, 0.5); /* Coral-colored shadow */
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Hover state for buttons */
-button:hover {
-  background-color: #FF7F6B; /* Darker coral on hover */
-  box-shadow: 0 6px 12px rgba(255, 127, 107, 0.6); /* Enhanced shadow on hover */
-}
-
-/* Styling for the email submit button */
-.email-form button {
-  background-color: #FFA07A;
-  width: 150px; /* Slightly different coral color for email submit */
-}
-
-/* Custom form button styling for the final submit button */
-.booking-form button {
-  background-color: #FF9A8B; /* Same coral color for booking submit */
-  margin-top: 15px;
-}
-.accept-button {
-  background-color: #FFA07A;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.accept-button:hover {
-  background-color: #FFA07A;
-}
-
-.cancel-button {
-  background-color: #c82333;
-  color: #fff;
-  padding: 100px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.cancel-button:hover {
-  background-color: #c82333;
-}
-

@@ -53,6 +53,21 @@ const PackagesPage = () => {
           <h2>{pkg.name}</h2>
           <p>{pkg.description}</p>
           <p>Price: Rs.{pkg.price}</p>
+
+          {/* Display photo if available */}
+          {pkg.photos && pkg.photos.length > 0 ? (
+            pkg.photos.map((photo, index) => (
+              <img 
+                key={index} 
+                src={`http://localhost:5000/${photo}`} // Ensure this matches your backend static file serving
+                alt={pkg.name} 
+                style={{ width: '200px', height: '150px', marginBottom: '10px' }} 
+              />
+            ))
+          ) : (
+            <p>No photo available</p>
+          )}
+
           <button onClick={() => handleCartToggle(pkg)}>
             {cart.some((item) => item._id === pkg._id) ? 'Remove from Cart' : 'Add to Cart'}
           </button>

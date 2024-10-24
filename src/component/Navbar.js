@@ -14,7 +14,7 @@ function Navbar({ cart }) { // Receive cart as a prop
         <Link to="/auth/signin" className="nav-button">Join</Link>
         <Link to="/packages" className="nav-button">Packages</Link>
         <Link to="/payment" className="nav-button">Payment</Link> {/* Show cart length */}
-        <Link to="/chat" className="nav-button">Chat</Link>
+      
       </div>
     </nav>
   );

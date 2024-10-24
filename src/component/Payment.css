@@ -134,4 +134,44 @@
     font-style: italic; /* Style for the animated message */
     margin-top: 10px; /* Space above the message */
   }
-  
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.shadow-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, #e6fffa, #fff0e6);
+}
+
+.button {
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-content {
+  max-width: 90%;
+  width: 500px;
+}
+
+@media (max-width: 640px) {
+  .dialog-content {
+    width: 95%;
+  }
+}

@@ -34,37 +34,54 @@ const MOrder = () => {
   return (
     <div className="m-order">
       <h2>Manage Orders</h2>
-      <h2>Manage Orders</h2>
       {orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        orders.map(order => (
-          <div className="card" key={order._id}>
-            <h3>Order ID: {order._id}</h3>
-            <p>Email: {order.email}</p>
-            <p>Address: {order.address}</p>
-            <p>Phone: {order.phone}</p>
-            <p>Payment Method: {order.paymentMethod}</p>
-            <p>Total Amount: {order.totalAmount}</p>
-            <h4>Passengers:</h4>
-            <ul className="passenger-list">
-              {order.passengers.map((passenger, index) => (
-                <li key={index}>
-                  {passenger.name} (Age: {passenger.age}, Email: {passenger.email})
-                </li>
-              ))}
-            </ul>
-            <h4>Packages:</h4>
-            <ul className="package-list">
-              {order.packages.map((pkg, index) => (
-                <li key={index}>
-                  {pkg.packageName} (Price: {pkg.packagePrice})
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      )} <br/><br/>
+        <div className="order-container">
+          {orders.map(order => (
+            <div className="order-card" key={order._id}>
+              <h3>Order ID: {order._id}</h3>
+              <p><strong>Email:</strong> {order.email}</p>
+              <p><strong>Address:</strong> {order.address}</p>
+              <p><strong>Phone:</strong> {order.phone}</p>
+              <p><strong>Payment Method:</strong> {order.paymentMethod}</p>
+              <p><strong>Total Amount:</strong> {order.totalAmount}</p>
+
+              {/* Passengers List */}
+              <div className="passengers-section">
+                <h4>Passengers:</h4>
+                {order.passengers.length > 0 ? (
+                  <ul className="passenger-list">
+                    {order.passengers.map((passenger, index) => (
+                      <li key={index}>
+                        {passenger.name} (Age: {passenger.age}, Email: {passenger.email})
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No passengers listed.</p>
+                )}
+              </div>
+
+              {/* Packages List */}
+              <div className="packages-section">
+                <h4>Packages:</h4>
+                {order.packages.length > 0 ? (
+                  <ul className="package-list">
+                    {order.packages.map((pkg, index) => (
+                      <li key={index}>
+                        {pkg.packageName} (Price: {pkg.packagePrice})
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No packages listed.</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -66,7 +66,7 @@ export default function LandingPage() {
   return (
     <div className="landing-page">
       <div className="container">
-        <br/>  <br/>  <br/>   <br/> <br/> <br/><br/> <br/><br/> <br/> <br/> <br/>   <br/>  <br/>  <br/> <br/> <br/><br/> <br/><br/> <br/> <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/><br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/>
+        <br/>  <br/>  <br/>   <br/> <br/><br/><br/><br/><br/> <br/><br/><br/><br/> <br/><br/> <br/> <br/> <br/>   <br/>  <br/>  <br/> <br/> <br/><br/> <br/><br/> <br/> <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/><br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/>  <br/>
         <div className="hero-section">
           <div className="hero-content">
             <h1 className="hero-title">Welcome to Voyago!......</h1>      <br/>
@@ -92,7 +92,7 @@ export default function LandingPage() {
         <br/> <br/> <br/> <br/>  <br/>  <br/> <br/>  <br/>  <br/>
 
         <div className="reasons-section">
-          <h2 className="section-title">Why We Are?.....!</h2>
+          <h2 className="section-title">Wh0 We Are?.....!</h2>
           <div className="reasons-grid">
             {reasons.map((reason, index) => (
               <div key={index} className="reason-card">
@@ -102,7 +102,7 @@ export default function LandingPage() {
             ))}
           </div>
         </div>
-        <br/>  <br/>  <br/> <br/>  <br/>  <br/> <br/>  <br/>  <br/> <br/>
+        <br/>  <br/>  <br/> <br/>  <br/>  <br/>
         
         {/* Add ID to the trips-section for bookmarking */}
         <div id="trips-section" className="trips-section">
@@ -128,7 +128,7 @@ export default function LandingPage() {
                       />
                     ))}
                   </div>
-                </div>
+                </div><br/>
                 <div className="trip-action">
                   <button onClick={handleJoinClick} className="join-button">
                     Join with Us

@@ -1,25 +1,54 @@
-import React from 'react';
-// import './FinishingPage.css'; // Create a separate CSS file for styling
+// frontend/src/Chat.js
+import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
 
-const FinishingPage = () => {
-    const handleLogout = () => {
-        console.log("Logout clicked");
-        // Your logout logic here
-    };
+const socket = io('http://localhost:3000');
 
-    const handleZOption = () => {
-        console.log("Z Option clicked");
-        // Your Z option logic here
+const Chat = ({ groupId }) => {
+    const [messages, setMessages] = useState([]);
+    const [input, setInput] = useState('');
+
+    useEffect(() => {
+        socket.emit('joinGroup', groupId);
+
+        socket.on('chat message', (msg) => {
+            setMessages((prev) => [...prev, msg]);
+        });
+
+        return () => {
+            socket.off('chat message');
+        };
+    }, [groupId]);
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        if (input.trim()) {
+            const msg = { text: input, groupId };
+            socket.emit('chat message', msg);
+            setInput('');
+        }
     };
 
     return (
-        <div className="finishing-page">
-            <h1>Thank You!</h1>
-            <p>We appreciate your visit. Have a great day!</p>
-            <button className="finishing-button" onClick={handleLogout}>Logout</button>
-            <button className="finishing-button" onClick={handleZOption}>Z Option</button>
+        <div className="chat-container">
+            <h2>Group Chat</h2>
+            <div className="messages">
+                {messages.map((msg, index) => (
+                    <div key={index}>{msg.text}</div>
+                ))}
+            </div>
+            <form onSubmit={sendMessage}>
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Type your message..."
+                    required
+                />
+                <button type="submit">Send</button>
+            </form>
         </div>
     );
 };
 
-export default FinishingPage;
+export default Chat;

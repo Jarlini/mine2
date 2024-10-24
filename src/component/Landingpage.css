@@ -149,10 +149,18 @@ background-color: #93b3f3;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-top: 16px;
+  width:100px;
+  height: 100px;
   
  
 }
 
+.trip-action {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end; /* Align items to the right */
+  /* Optional: add some padding if needed */
+  padding: 10px; /* Adjust as needed */
+}
 
 .join-button {
   background-color: #f5a623;
@@ -162,10 +170,8 @@ background-color: #93b3f3;
   border-radius: 9999px;
   font-size: 18px;
   transition: all 0.3s ease;
-  display: block;
-  margin: 0 auto;
+  display: inline-block; /* Retain block-like properties */
 }
-
 .join-button:hover {
   background-color: #FF5252;
   transform: scale(1.05);

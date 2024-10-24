@@ -16,7 +16,7 @@ function SignUpPage() {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-
+    
         if (password.length < 6) {  // Minimum password length validation
             toast.error('Password must be at least 6 characters long.', {
                 position: "top-right",
@@ -25,21 +25,31 @@ function SignUpPage() {
             });
             return;
         }
-
+    
+        // Email validation for Gmail
+        if (!email.endsWith('@gmail.com')) {
+            toast.error('Email must be a Gmail address (ending with @gmail.com).', {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "colored",
+            });
+            return;
+        }
+    
         try {
             const response = await axios.post('/api/auth/register', { username, email, password });
             console.log(response); // Log the successful registration response
-
+    
             // Store token in local storage
             localStorage.setItem('token', response.data.token);
-
+    
             // Notify user of successful registration
             toast.success('Registration Successful! Please Sign In...', {
                 position: "top-right",
                 autoClose: 5000,
                 theme: "colored",
             });
-
+    
             // Redirect to Sign In page after a short delay
             setTimeout(() => {
                 navigate('/auth/signin');
@@ -54,8 +64,7 @@ function SignUpPage() {
             });
         }
     };
-
-    return (
+        return (
         <div className="sign-in-container"> {/* Reuse the same container styling */}
             <div className="sign-in-wrapper">
                 <div className="image-section">
