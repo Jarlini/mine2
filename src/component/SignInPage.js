@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Authcontainer.css'; // Ensure this path is correct
-import pic3 from '/home/uki-student/Downloads/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-25-09.png'; // Corrected import statement
+import '/home/uki-student/mine/freshmyf-main/src/component/Authcontainer.css'; // Ensure this path is correct
+import pic3 from '/home/uki-student/mine/freshmyf-main/src/component/photos/Screenshot from 2024-09-09 11-25-09.png'; // Corrected import statement
 
 axios.defaults.baseURL = 'http://localhost:5000'; // Backend URL
 

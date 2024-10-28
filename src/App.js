@@ -9,7 +9,11 @@ import Footer from './component/Footer';
 import AdminDashboard from './component/Admindash';
 // import GroupChat from './component/groupz';
 import  PaymentPage from './component/CartPage';
+import FinalPage from './component/Thank';
 // import Group from './component/grop';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  CuteHappyCustomerPage from'./component/PayPage';
+
 
 
 function App() {
@@ -17,9 +21,10 @@ function App() {
 
   return (
     <Router>
-      <Navbar cart={cart} /> {/* Pass the cart to Navbar for display */}
+     <Navbar /> 
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={< CuteHappyCustomerPage />} />
+        {<Route path="/" element={<LandingPage/>} /> }
         <Route path="/auth/signin" element={<SignIn />} />
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/packages" element={<PackagesPage setCart={setCart} />} /> {/* Pass setCart to PackagesPage */}
@@ -27,7 +32,7 @@ function App() {
         {/* <Route path="/chat" element={< />} /> */}
         {    <Route path="/payment" element={<  PaymentPage />} />/* Pass cart and setCart to CartPage */}
         {/* <Route path="/checkout" element={<CheckoutPage cart={cart} />} /> */}
-        {/* <Route path="/cha" element={<Group />} /> */}
+        {<Route path="/thankyou" element={< FinalPage/>} /> }
       </Routes>
       <Footer />
     </Router>

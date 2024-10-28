@@ -1,47 +1,6 @@
-.landing-page {
-  min-height: 100vh;
-  background-color: #EBF5FF;
-  padding-top: 80px;
-}
 
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 64px;
-}
-
-.hero-content {
-  width: 100%;
-  margin-bottom: 32px;
-}
-
-.hero-title {
-  font-size: 60px;
-  font-weight: bold;
-  color: #FF6B6B;
-  margin-bottom: 24px;
-  text-align: center;
-  transition: transform 0.5s ease, color 0.5s ease; /* Add transition */
-}
-
-.hero-title:hover {
-  transform: scale(1.1); /* Slightly increase the size on hover */
-  color: #FF5252; /* Change color on hover */
-}
-
-.hero-text {
-  font-size: 28px;
-  color: #080b11;
-  margin-bottom: 32px;
-}
+.hero-section{  width: 2000px;}
 
 .explore-button {
   background-color: #f5a623;
@@ -60,33 +19,26 @@
   transform: scale(1.05);
 }
 
-.hero-images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  width: 300px; /* Increase width */
-  height: 300px; /* Increase height */
-}
 
 .hero-image {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   object-fit: cover;
-  height: 300px; /* Increase image height */
-  width: 300px;   /* Full width */
+  height: 460px; /* Increase image height */
+  width: 300px; 
+  
+  border-radius: 9px;
+  /* Full width */
 }
 
-.hero-image:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05); /* Slightly enlarge on hover */
-}
+
 
 
 .section-title {
   font-size: 40px;
   font-weight: bold;
-  color: #FF6B6B;
+  color: orangered;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -111,18 +63,29 @@ background-color: #93b3f3;
   gap: 32px;
 }
 
-.reason-card, .trip-card {
+.reason-card {
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 160px 240px teal; /* Light orange shadow */
   padding: 24px;
   transition: all 0.3s ease;
+  width: 360px; /* Set a specific width for the cards */
+}
+
+ .trip-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 160px 240px teal; /* Light orange shadow */
+  padding: 24px;
+  transition: all 0.3s ease;
+  width: 400px; /* Set a specific width for the cards */
 }
 
 .reason-card:hover, .trip-card:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 4px#f5a623; /* Darker shadow on hover */
   transform: scale(1.05);
 }
+
 
 .reason-image, .trip-photo {
   width: 300px;
@@ -140,7 +103,7 @@ background-color: #93b3f3;
 .trip-title {
   font-size: 24px;
   font-weight: 600;
-  color: #FF6B6B;
+  color:orangered;
   margin-bottom: 8px;
 }
 
@@ -149,18 +112,12 @@ background-color: #93b3f3;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-top: 16px;
-  width:100px;
-  height: 100px;
+  width:300px;
+  height: 300px;
   
  
 }
 
-.trip-action {
-  display: flex; /* Use flexbox for alignment */
-  justify-content: flex-end; /* Align items to the right */
-  /* Optional: add some padding if needed */
-  padding: 10px; /* Adjust as needed */
-}
 
 .join-button {
   background-color: #f5a623;
@@ -218,6 +175,8 @@ background-color: #93b3f3;
   align-items: center;
   padding: 20px;
   background-color: #f5f5f5;
+  width: 100%; /* Full width */
+  max-width: 2500px; /* Maximum width of 1200px */
 }
 
 .left-container {
@@ -228,20 +187,6 @@ background-color: #93b3f3;
 .right-container {
   flex: 1;
   padding: 10px;
-}
-
-.work-image {
-  width: 500px;
-  height:300px;
-  border-radius: 10px;
-}
-
-.right-container h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #FF6B6B;
-  font-style: italic;
 }
 
 .right-container ul {
@@ -263,4 +208,143 @@ background-color: #93b3f3;
   position: absolute;
   left: -30px;
   top: -5px;
+}
+/* Hero Section */
+
+.how-we-work-container {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  padding: 2rem;
+  position: relative;
+}
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #e9ecef;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+.left {
+  left: 0;
+}
+.right {
+  left: 50%;
+}
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.icon-wrapper {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: -25px;
+  top: 15px;
+  background-color: #e9ecef;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left .icon-wrapper {
+  right: -25px;
+}
+.right .icon-wrapper {
+  left: -25px;
+}
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+.rotate {
+  animation: rotate 5s linear infinite;
+}
+.scale {
+  animation: scale 2s ease-in-out infinite;
+}
+.shake {
+  animation: shake 2s ease-in-out infinite;
+}
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  .timeline-item.right {
+    left: 0%;
+  }
+  .content {
+    padding: 15px 20px;
+  }
+  .icon-wrapper {
+    left: 15px !important;
+    right: auto !important;
+  }
+}
+.trip-card {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Space between content and action */
+  /* Add any other styles for your card here */
+}
+
+.trip-action {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end; /* Align to the right */
+  margin-top: auto; /* Push the button to the bottom of the card */
+}
+.how-we-work-title {
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: bold; /* Bold font weight */
+  color: #f5a623; /* Color that stands out (you can customize) */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+  margin-bottom: 1rem; /* Bottom margin for spacing */
+  position: relative; /* For positioning the pseudo-element */
+}
+
+.how-we-work-title::after {
+   /* Empty content for pseudo-element */
+  display: inline-flex; /* Make it a block element */
+  width: 50px; /* Width of the underline */
+  height: 4px; /* Height of the underline */
+  background-color: #f5a623; /* Match the header color */
+  margin: 0 auto; /* Center it */
+  margin-top: 0.5rem; /* Space between text and underline */
+  border-radius: 2px; /* Rounded edges */
+}
+
+.how-we-work-title:hover {
+  color: #d48900; /* Change color on hover */
+  transition: color 0.3s ease; /* Smooth transition effect */
 }

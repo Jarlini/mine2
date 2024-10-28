@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { Alert, Form, Button } from 'react-bootstrap';
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Payment.css';
+import '/home/uki-student/mine/freshmyf-main/src/component/Payment.css';
 
 const PaymentPage = () => {
   const location = useLocation();

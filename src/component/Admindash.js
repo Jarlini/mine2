@@ -8,7 +8,7 @@ import MUser from './M.user';
 import MPackage from './Mpackege';
 import MOrder from './Morder'; // Import the new MOrder component
 
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Style.css';
+import '/home/uki-student/mine/freshmyf-main/src/component/Style.css';
 
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState('');
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
           <li onClick={() => setActiveSection('users')}>Manage Users</li>
           <li onClick={() => setActiveSection('trips')}>Manage Trips</li>
           <li onClick={() => setActiveSection('packages')}>Manage Packages</li>
-          <li onClick={() => setActiveSection('groups')}>Manage Groups</li>
+          
           <li onClick={() => setActiveSection('addService')}>Add New Service</li>
           <li onClick={() => setActiveSection('orders')}>Manage Orders</li> {/* Updated to Manage Orders */}
         </ul>

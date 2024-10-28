@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Home.css'; // Adjust path as needed
+import '/home/uki-student/mine/freshmyf-main/src/component/Home.css'; // Adjust path as needed
 
 const AddTrip = () => {
   const [title, setTitle] = useState('');

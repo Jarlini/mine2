@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/index.css';
+import '/home/uki-student/mine/freshmyf-main/src/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

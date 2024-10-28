@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from './Api'; // Adjust the path as necessary
-import '/home/uki-student/Downloads/mine/freshmyf-main/src/component/Morder.css'; // Ensure the correct path is used
+import '/home/uki-student/mine/freshmyf-main/src/component/Morder.css'; // Ensure the correct path is used
 
 const MOrder = () => {
   const [orders, setOrders] = useState([]);

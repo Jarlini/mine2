@@ -1,0 +1,84 @@
+/* Ensure that body takes up the full height of the viewport */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    background-color: #008080; /* Teal */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  }
+  
+  /* Style for the logo in the navbar */
+  .logo img {
+    width: 80px; /* Adjust as necessary */
+    height: 70px;
+    border-radius: 50%; /* Makes the logo round */
+    object-fit: cover;
+  }
+  
+  /* Style for the navigation links */
+  .nav-links {
+    display: flex;
+  }
+  
+  /* Style for buttons */
+  .nav-button {
+    display: flex; /* Make button a flex container */
+    align-items: center; /* Center icons and text vertically */
+    background-color: white; /* Button background */
+    color: #008080; /* Teal text color */
+    border: none;
+    padding: 10px 15px; /* Adjust padding for uniform button size */
+    margin: 0 15px; /* Increase margin between buttons */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px; /* Increase this value for rounder buttons */
+    text-transform: uppercase; /* Makes the text uppercase */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  /* Hover and active states for buttons */
+  .nav-button:hover {
+    background-color: #f5a623; /* Orange background on hover */
+    color: white; /* Changes text color on hover */
+  }
+  
+  .nav-button:active {
+    background-color: #e67e22; /* Darker orange when clicked */
+    color: white; /* Keeps the text color white when active */
+  }
+  
+  /* Style for the main content to avoid overlap with the fixed navbar */
+  .main-content {
+    margin-top: 70px; /* Adjust based on navbar height */
+    flex: 1; /* Allows the content area to expand */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+  
+    .nav-button {
+      margin: 5px 0; /* Stack buttons with less margin */
+      width: 100%; /* Make buttons full width */
+      justify-content: center; /* Center button text */
+    }
+  }
+  
