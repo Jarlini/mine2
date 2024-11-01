@@ -80,7 +80,7 @@
 
 /* Buttons */
 button {
-  padding: 10px 20px;
+  padding: 10px 2px;
   background-color: #FFA07A;
   color: white;
   border: none;
@@ -120,4 +120,60 @@ button:hover {
   max-width: 600px;
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+:root {
+  --teal: #004d40;
+  --orange: #ff5722;
+}
+
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar .nav-link svg {
+  margin-right: 10px;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.overview-page h1 {
+  color: var(--teal);
+  margin-bottom: 30px;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bg-teal {
+  background-color: var(--teal);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }

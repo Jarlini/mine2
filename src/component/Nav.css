@@ -7,21 +7,7 @@ body {
     flex-direction: column;
   }
   
-  .navbar {
-    background-color: #008080; /* Teal */
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed; /* Fixes the navbar to the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Ensures it stays above other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-  }
-  
+
   /* Style for the logo in the navbar */
   .logo img {
     width: 80px; /* Adjust as necessary */
@@ -51,9 +37,27 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
     text-decoration: none; /* Remove underline from links */
   }
-  
-  /* Hover and active states for buttons */
-  .nav-button:hover {
+   /* Style for buttons */
+   .nav-butto0n {
+    display: flex; /* Make button a flex container */
+    align-items: center; /* Center icons and text vertically */
+    /* Button background */
+    color:white; /* Teal text color */
+    border: none;
+    padding: 10px 15px; /* Adjust padding for uniform button size */
+    margin: 0 15px; /* Increase margin between buttons */
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 20px; /* Increase this value for rounder buttons */
+    text-transform: uppercase; /* Makes the text uppercase */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    text-decoration: none; /* Remove underline from links */
+  }
+  .navButto0n:hover {
+    background-color: #f5a623; /* Orange background on hover */
+    color: orange; /* Changes text color on hover */
+  }
+  .navButtonStyle:hover {
     background-color: #f5a623; /* Orange background on hover */
     color: white; /* Changes text color on hover */
   }
@@ -81,4 +85,74 @@ body {
       justify-content: center; /* Center button text */
     }
   }
-  
+/* Social bar styles */
+.social-bar {
+  background-color: white; /* Teal background color */
+  color: teal;
+  padding: 5px 0;
+  font-size: 14px;
+  height: 80px;
+}
+
+.follow-us-text {
+  font-weight: bold;
+  color: teal;
+}
+
+.social-icon {
+  color: teal;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #f5a623; /* Orange color on hover */
+}
+
+.language-selector select {
+  background-color: white; /* Teal background for dropdown */
+  color: teal;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: #f5a623; /* Orange border on focus */
+}
+
+/* Adjust navbar top position to account for social bar */
+.navbar {
+  top: 40px; /* Adjust to place navbar below the social bar */
+}
+
+
+/* Navbar styles */
+.navbar {
+  background-color: white; /* White background for navbar */
+  color: #008080; /* Teal text color */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 50px; /* Adjusted to place navbar below the social bar */
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+  color: #008080; /* Teal text color */
+}
+
+.nav-button:hover {
+  background-color: #f5a623; /* Orange background on hover */
+  color: white; /* White text on hover */
+}
+
+/* Adjust main content margin to account for both the social bar and navbar */
+.main-content {
+  margin-top: 110px; /* Adjust based on the combined height of social bar and navbar */
+}

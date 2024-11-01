@@ -71,7 +71,7 @@ function SignUpPage() {
                     <img src={pic3} alt="Sign Up" className="sign-in-image" />
                 </div>
                 <div className="form-section">
-                    <h1 className="form-title">Create Account</h1>
+                    <h1 className="form-title">Create Account</h1><br/>
                     <form onSubmit={handleSignUp} className="sign-in-form"> {/* Reuse form classes */}
                         <input
                             type="text"

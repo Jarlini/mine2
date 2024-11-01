@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './component/Navbar'; // Adjust path based on your project structure
+import Navbar from './component/Nav'; // Adjust path based on your project structure
 import LandingPage from './component/Landingpage'; // Replace with your actual component path
 import SignIn from './component/SignInPage'; // Replace with your actual component path
 import SignUp from './component/SignUpPage'; // Replace with your actual component path
@@ -13,7 +13,7 @@ import FinalPage from './component/Thank';
 // import Group from './component/grop';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  CuteHappyCustomerPage from'./component/PayPage';
-
+import SocialBar from './component/Socialbar';
 
 
 function App() {
@@ -21,6 +21,8 @@ function App() {
 
   return (
     <Router>
+      
+      <SocialBar />
      <Navbar /> 
       <Routes>
         <Route path="/about" element={< CuteHappyCustomerPage />} />

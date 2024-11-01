@@ -1,36 +1,33 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faHeart, faEnvelope, faMapMarkerAlt, faPhone, faStar, faUsers, faComments, faPlaneDeparture, faCameraRetro, faUtensils, faHotel, faMountain } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faMapMarkerAlt, faPhone, faStar, faUsers, faEnvelope, faPlaneDeparture, faCameraRetro, faUtensils, faHotel, faMountain } from '@fortawesome/free-solid-svg-icons';
 
-const ColorfulThankYouPage = () => {
+export default function Component() {
   const handleButtonClick = (action: string) => {
     // Replace with actual functionality
     console.log(`Action: ${action}`);
   };
 
   return (
-    <div className="bg-light"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      {/* Hero Section with Gradient Background */}
-      <section className="py-5 text-white text-center" style={{background: 'linear-gradient()'}}>
-        <div className="container"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-          <h1 className="display-2 fw-bold mb-3">Thank You for Choosing Us!</h1>45deg, #FF9F1C, #2EC4B6, #45B7D1, #FDCB6E, #6C5CE7
-          <p className="lead mb-4 ">Your colorful adventure begins here. Get ready for an unforgettable experience!</p>
-          <FontAwesomeIcon icon={faHeart} className="text-warning" size="4x" bounce />
+    <div className="bg-light">
+      <section className="py-5 text-white text-center" style={{background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #FDCB6E, #6C5CE7)'}}>
+        <div className="container"><br/><br/>
+          <h1 className="display-2 fw-bold mb-3">Thank You for Choosing Us!</h1>
+          <p className="lead mb-4">Your cute adventure begins here. Get ready for an unforgettable experience!</p>
+          <FontAwesomeIcon icon={faHeart} className="text-white" size="4x" bounce />
         </div>
       </section>
 
-      {/* Colorful Buttons Section */}
       <section className="py-5 bg-white">
         <div className="container">
-          <h2 className="text-center mb-5">Explore Your Adventure Options</h2>
+          <h2 className="text-center mb-5" style={{color: '#2EC4B6'}}>Explore Your Adventure Options</h2>
           <div className="d-flex flex-wrap justify-content-center gap-3">
             {[
-              { icon: faPlaneDeparture, text: "Book Flights", color: "#FF6B6B" },
-              { icon: faHotel, text: "Find Hotels", color: "#4ECDC4" },
-              { icon: faUtensils, text: "Local Cuisine", color: "#45B7D1" },
-              { icon: faCameraRetro, text: "Photo Tours", color: "#FDCB6E" },
-              { icon: faMountain, text: "Adventures", color: "#6C5CE7" }
+              { icon: faHotel, text: "Find Hotels", color: "#FF9F1C" },
+              { icon: faUtensils, text: "Local Cuisine", color: "#2EC4B6" },
+              { icon: faCameraRetro, text: "Photo Tours", color: "#FF9F1C" },
+              { icon: faMountain, text: "Adventures", color: "#2EC4B6" }
             ].map((button, index) => (
               <button
                 key={index}
@@ -46,24 +43,21 @@ const ColorfulThankYouPage = () => {
         </div>
       </section>
 
-      {/* Animated Features Section */}
-      <section className="py-5 bg-light">
+      <section className="py-5" style={{backgroundColor: '#F3F3F3'}}>
         <div className="container">
-          <h2 className="text-center mb-5">What's Included in Your Package</h2>
+          <h2 className="text-center mb-5" style={{color: '#FF9F1C'}}>What's Included in Your Package</h2>
           <div className="row g-4">
             {[
-              { icon: faUsers, title: "Group Activities", description: "Join fun group activities and make new friends!", color: "#FF6B6B" },
-              { icon: faHotel, title: "Luxury Accommodations", description: "Stay in comfortable and stylish hotels.", color: "#4ECDC4" },
-              { icon: faUtensils, title: "Gourmet Meals", description: "Enjoy delicious local and international cuisine.", color: "#45B7D1" },
-              { icon: faCameraRetro, title: "Guided Tours", description: "Explore with knowledgeable local guides.", color: "#FDCB6E" }
+              { icon: faUsers, title: "Group Activities", description: "Join fun group activities and make new friends!", color: "#2EC4B6" },
+              { icon: faHotel, title: "Cute Accommodations", description: "Stay in adorable and cozy hotels.", color: "#FF9F1C" },
+              { icon: faUtensils, title: "Yummy Meals", description: "Enjoy delicious local and international cuisine.", color: "#2EC4B6" },
+              { icon: faCameraRetro, title: "Guided Tours", description: "Explore with friendly local guides.", color: "#FF9F1C" }
             ].map((feature, index) => (
               <div key={index} className="col-md-6 col-lg-3">
-                <div className="card h-100 border-0 shadow-sm text-center hover-scale">
-                  <div className="card-body">
-                    <FontAwesomeIcon icon={feature.icon} className="mb-3" size="3x" style={{color: feature.color}} />
-                    <h3 className="card-title h5">{feature.title}</h3>
-                    <p className="card-text">{feature.description}</p>
-                  </div>
+                <div className="bg-white p-4 rounded-3 shadow-sm text-center h-100">
+                  <FontAwesomeIcon icon={feature.icon} className="mb-3" size="3x" style={{color: feature.color}} />
+                  <h3 className="h5" style={{color: feature.color}}>{feature.title}</h3>
+                  <p className="mb-0">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -71,10 +65,9 @@ const ColorfulThankYouPage = () => {
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
       <section className="py-5 bg-white">
         <div className="container">
-          <h2 className="text-center mb-5">What Our Happy Travelers Say</h2>
+          <h2 className="text-center mb-5" style={{color: '#2EC4B6'}}>What Our Happy Travelers Say</h2>
           <div id="testimonialCarousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               {[
@@ -83,15 +76,13 @@ const ColorfulThankYouPage = () => {
                 { name: "Emily R.", text: "The WhatsApp group was a game-changer! Made friends before the trip even started." }
               ].map((testimonial, index) => (
                 <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                  <div className="card border-0 shadow-sm mx-auto" style={{maxWidth: '600px'}}>
-                    <div className="card-body text-center p-5">
-                      <p className="lead mb-4">"{testimonial.text}"</p>
-                      <footer className="blockquote-footer mt-2">{testimonial.name}</footer>
-                      <div className="mt-3">
-                        {[...Array(5)].map((_, i) => (
-                          <FontAwesomeIcon key={i} icon={faStar} className="text-warning me-1" />
-                        ))}
-                      </div>
+                  <div className="bg-light p-4 rounded-3 mx-auto" style={{maxWidth: '600px'}}>
+                    <p className="lead mb-4">"{testimonial.text}"</p>
+                    <footer className="blockquote-footer mt-2">{testimonial.name}</footer>
+                    <div className="mt-3">
+                      {[...Array(5)].map((_, i) => (
+                        <FontAwesomeIcon key={i} icon={faStar} className="text-warning me-1" />
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -109,36 +100,24 @@ const ColorfulThankYouPage = () => {
         </div>
       </section>
 
-      {/* Call-to-Action Section */}
-      <section className="py-5 text-white text-center" style={{background: 'linear-gradient(45deg, #6C5CE7, #45B7D1)'}}>
+      <section className="py-5 text-white text-center" style={{background: 'linear-gradient(45deg, #2EC4B6, #FF9F1C)'}}>
         <div className="container">
           <h2 className="mb-4">Ready to Start Your Journey?</h2>
           <p className="lead mb-4">Join our WhatsApp group to get instant updates and connect with fellow travelers!</p>
-          <button 
-            className="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold"
-            onClick={() => window.open('https://chat.whatsapp.com/your-group-invite-link', '_blank')}
-          >
-            <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
-            Join Our WhatsApp Group for madhu trip...
-          </button><br/><br/>
-          <button 
-            className="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold"
-            onClick={() => window.open('https://chat.whatsapp.com/your-group-invite-link', '_blank')}
-          >
-            <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
-            Join Our WhatsApp Group for kathirkama trip....
-          </button><br/><br/>
-          <button 
-            className="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold"
-            onClick={() => window.open('https://chat.whatsapp.com/your-group-invite-link', '_blank')}
-          >
-            <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
-            Join Our WhatsApp Group for thirukonesesvara trip.....
-          </button>
+          {['madhu trip', 'kathirkama trip', 'thirukonesesvara trip'].map((trip, index) => (
+            <button 
+              key={index}
+              className="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold mb-3 d-block mx-auto"
+              style={{maxWidth: '400px'}}
+              onClick={() => window.open('https://chat.whatsapp.com/your-group-invite-link', '_blank')}
+            >
+              <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
+              Join Our WhatsApp Group for {trip}
+            </button>
+          ))}
         </div>
       </section>
 
-      {/* Footer with Social Media */}
       <footer className="py-5 bg-dark text-white">
         <div className="container">
           <div className="row g-4">
@@ -153,9 +132,7 @@ const ColorfulThankYouPage = () => {
           <hr className="my-4" />
         
     </div>
-      </footer><br/><br/><br/><br/>
+      </footer><br/><br/><br/>
     </div>
   );
-};
-
-export default ColorfulThankYouPage;
+}

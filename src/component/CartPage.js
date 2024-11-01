@@ -108,7 +108,7 @@ const PaymentPage = () => {
       </div>
 
       {showBookingForm && (
-        <div className="booking-form">
+        <div className="booking-form"><br/><br/><br/>
           <h2>Booking Form</h2>
           <form onSubmit={handleBookingSubmit}>
             <label>

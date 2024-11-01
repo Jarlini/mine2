@@ -1,49 +1,140 @@
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 80vh; /* Full viewport height */
+  overflow: hidden;
+
+  /* Hide overflow for carousel */
+}
+
+.reasons-section, .trips-section {
+  padding-left: 20px;  /* Adjust as needed */
+  padding-right: 20px; /* Adjust as needed */
+}
+
+/* Optionally, for larger screens */
+@media (min-width: 768px) {
+  .reasons-section, .trips-section {
+    padding-left: 120px;  /* Adjust for larger screens */
+    padding-right: 100px; /* Adjust for larger screens */
+  }
+}
 
 
-.hero-section{  width: 2000px;}
 
+.hero-carousel {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.hero-image {
+  object-fit: cover; /* Keep aspect ratio */
+  height: 800px;
+  width: 2000px; /* Adjust to fill the carousel */
+}
+
+/* Carousel Overlay */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Animated Text */
+.animated-text {
+  opacity: 0; /* Start invisible */
+  transform: translateY(200px); /* Start slightly below */
+  animation: fadeInUp 1s forwards; /* Fade in and move up */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End in place */
+  }
+}
+
+/* Carousel Item */
+.carousel-item {
+  transition: transform 0.5s ease; /* Smooth transition for slide effect */
+}
+
+/* Image Styles */
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End in place */
+  }
+}
+
+/* Carousel Item */
+.carousel-item {
+  transition: transform 0.5s ease; /* Smooth transition for slide effect */
+}
+
+/* Image Styles */
 .explore-button {
-  background-color: #f5a623;
-  color: white;
-  font-weight: bold;
+  background-color: #ffffff; /* White for a good contrast */
+  color: #00695c; /* Dark teal text to match the teal background */
+  border: 2px solid #ffffff;
   padding: 12px 24px;
-  border-radius: 9999px;
-  font-size: 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
   transition: all 0.3s ease;
-  display: block;
-  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .explore-button:hover {
-  background-color: #FF5252;
-  transform: scale(1.05);
+  background-color: #004d40; /* Darker teal on hover */
+  color: #ffffff;
+  transform: scale(1.05); /* Slightly larger on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
-
-.hero-image {
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  object-fit: cover;
-  height: 460px; /* Increase image height */
-  width: 300px; 
-  
-  border-radius: 9px;
-  /* Full width */
+.explore-button:active {
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.who-we-are-section{
+  position: relative;
+  height: 80vh; /* Full viewport height */
+  overflow: hidden;
+width: 900px;
+  /* Hide overflow for carousel */
+}
+.reasons-section {
+  padding-bottom: 40px; /* Adjust this value as needed for spacing */
+}
 
-
+.trips-section {
+  margin-top: 40px; /* Creates space before the section starts */
+}
 
 .section-title {
   font-size: 40px;
   font-weight: bold;
-  color: orangered;
+  color: teal;
   margin-bottom: 16px;
   text-align: center;
 }
 .section{
 background-color: #93b3f3;
+width: 1000px;
 }
 
 .section-description {
@@ -347,4 +438,32 @@ background-color: #93b3f3;
 .how-we-work-title:hover {
   color: #d48900; /* Change color on hover */
   transition: color 0.3s ease; /* Smooth transition effect */
+}
+.timeline .row {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline .row::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background-color: #ddd;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.timeline .row .content {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline .row:first-child::before {
+  top: 50%;
+}
+
+.timeline .row:last-child::before {
+  bottom: 50%;
 }

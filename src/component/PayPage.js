@@ -1,100 +1,90 @@
-import React, { useState } from 'react'
-import { FaHome, FaRoute, FaBox, FaCreditCard, FaUsers, FaHeart, FaComments, FaCamera } from 'react-icons/fa'
-import { useSpring, animated } from 'react-spring'
-
-export default function CuteHappyCustomerPage() {
-  const [hoveredCard, setHoveredCard] = useState(null)
-
-  const fadeIn = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 1000 }
-  })
-
-  const headingStyle = {
-    fontSize: '40px',
-    fontWeight: 'bold',
-    color: 'orangered',
-    marginBottom: '16px',
-    textAlign: 'center' ,
-  }
-
-  const steps = [
-    { icon: FaHome, title: "Cozy Home", description: "Start your magical journey from our warm and welcoming homepage!", color: "#FFB3BA" },
-    { icon: FaBox, title: "Surprise Packs", description: "Unwrap joy with our specially curated travel packages!", color: "#BAE1FF" },
-    { icon: FaCreditCard, title: "Easy Peasy Pay", description: "Secure and swift payments to kick-start your adventure!", color: "#FFFFBA" },
-    { icon: FaRoute, title: "Dream Routes", description: "Explore exciting paths to your dream destinations!", color: " #b2dfdb" },
-    { icon: FaUsers, title: "Friend Fiesta", description: "Join a jolly group of fellow adventurers!", color: "#ffe5b4" }
-  ]
+import React from 'react';
+import { FaHeart, FaComments, FaCamera, FaPaw, FaStar, FaUmbrella, FaIceCream, FaGift, FaMagic } from 'react-icons/fa';
+import travelersImg from '/home/uki-student/mine/freshmyf-main/src/component/photos/an.jpg';
+export default function CuteAboutPage() {
+  const fadeIn = {
+    opacity: 1,
+    transition: 'opacity 1s ease-in'
+  };
 
   const reasons = [
     { icon: FaHeart, title: "Heartfelt Service", description: "We pour love into every detail of your journey!" },
     { icon: FaComments, title: "Always Listening", description: "Your feedback shapes our service, making it better every day!" },
-    { icon: FaCamera, title: "Memory Makers", description: "We help create picture-perfect moments you'll cherish forever!" }
-  ]
+    { icon: FaCamera, title: "Memory Makers", description: "We help create picture-perfect moments you'll cherish forever!" },
+    { icon: FaPaw, title: "Pet Friendly", description: "Your furry friends are welcome on our adventures!" },
+    { icon: FaStar, title: "Star Treatment", description: "Every customer is our VIP, receiving stellar care!" },
+    { icon: FaUmbrella, title: "Rain or Shine", description: "We've got you covered in all weather conditions!" }
+  ];
+
+  const funFacts = [
+    { icon: FaIceCream, fact: "We've served over 10,000 ice creams to happy travelers!" },
+    { icon: FaGift, fact: "Every 100th customer gets a surprise gift on their journey!" },
+    { icon: FaMagic, fact: "Our team includes a real magician for entertainment!" }
+  ];
 
   return (
-    <animated.div style={fadeIn} className="container mt-5 pb-5"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <h1 style={headingStyle}>Your Happy Adventure Starts Here! 🌈✨</h1>
-      
-      <div className="row g-4 mb-5">
-        {steps.map((step, index) => (
-          <div key={index} className="col-md-4 mb-4">
-            <animated.div
-              className="card h-100 shadow border-0 rounded-lg overflow-hidden"
-              style={{
-                backgroundColor: step.color,
-                transform: hoveredCard === index ? 'scale(1.05)' : 'scale(1)',
-                transition: 'transform 0.3s ease-in-out'
-              }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className="card-body text-center d-flex flex-column justify-content-center">
-                <step.icon className="mb-3" size={50} color="#007bff" />
-                <h3 className="card-title fw-bold">{step.title}</h3>
-                <p className="card-text fs-5">{step.description}</p>
-              </div>
-            </animated.div>
-          </div>
-        ))}
-      </div>
+    <div className="container-fluid py-5" style={{ backgroundColor: '#E0F2F1' }}><br/>
+      <div className="container" style={fadeIn}>
+        <h1 className="display-4 text-center mb-5" style={{ color: '#00897B', fontWeight: 'bold' }}>
+          Welcome to Our Whimsical World of Travel! 
+        </h1>
 
-      <div className="mt-5 bg-light py-5 rounded-lg shadow">
-        <h2 style={headingStyle}>Why We're Your Best Travel Buddies! 🌟</h2>
-        <div className="row g-4">
+        <div className="row mb-5">
+      <div className="col-md-6">
+        <img 
+          src={travelersImg} 
+          alt="Happy travelers" 
+          className="img-fluid rounded-circle shadow-lg" 
+          style={{ height: '400px', width: '600px' }}
+        />
+      </div>
+    
+
+      
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <p className="lead" style={{ color: '#FF5722', fontSize: '1.5rem' }}>
+              At CuteTravel, we believe every journey should be filled with smiles, laughter, and unforgettable moments!
+            </p>
+            <p className="mt-3" style={{ fontSize: '1.2rem' }}>
+              Our team of adventure enthusiasts is dedicated to crafting the most adorable and exciting travel experiences just for you!
+            </p>
+          </div>
+        </div>
+
+        <h2 className="text-center mb-4" style={{ color: '#00897B' }}>Why Choose Our Cuddly Company? 🐨</h2>
+        <div className="row g-4 mb-5">
           {reasons.map((reason, index) => (
             <div key={index} className="col-md-4 mb-4">
-              <div className="card h-100 shadow-sm border-0">
+              <div className="card h-100 border-0 shadow-sm" style={{ backgroundColor: index % 2 === 0 ? '#B2DFDB' : '#FFCCBC' }}>
                 <div className="card-body text-center">
-                  <reason.icon className="mb-3" size={40} color="#ffc107" />
-                  <h4 className="card-title fw-bold">{reason.title}</h4>
-                  <p className="card-text fs-5">{reason.description}</p>
+                  <reason.icon className="mb-3" size={50} color={index % 2 === 0 ? '#00897B' : '#FF5722'} />
+                  <h3 className="card-title h4" style={{ color: index % 2 === 0 ? '#00897B' : '#FF5722' }}>{reason.title}</h3>
+                  <p className="card-text">{reason.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-      <div className="text-center mt-5">
-  <h3 style={{ ...headingStyle, fontSize: '32px' }}>Ready for Your Next Adventure?</h3>
-  <button
-    className="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold fs-4 shadow-lg"
-    onClick={() => (window.location.href = 'http://localhost:3000')}
-  >
-    Join with Our Journey Now! 🚀
-  </button>
-</div>
 
-
-      <div className="mt-5 text-center">
-        <p className="fs-5">Follow us for daily doses of wanderlust! ✈️🌴🗺️</p>
-        <div className="d-flex justify-content-center gap-4">
-          <FaHeart size={30} color="#e25555" />
-          <FaComments size={30} color="#3b5998" />
-          <FaCamera size={30} color="#833AB4" />
+        <div className="bg-white rounded-lg shadow-lg p-5 mb-5">
+          <h2 className="text-center mb-4" style={{ color: '#FF5722' }}>Fun Facts About Us! </h2>
+          <div className="row">
+            {funFacts.map((fact, index) => (
+              <div key={index} className="col-md-4 mb-3">
+                <div className="d-flex align-items-center">
+                  <fact.icon size={30} className="me-3" style={{ color: '#00897B' }} />
+                  <p className="mb-0" style={{ fontSize: '1.1rem' }}>{fact.fact}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div><br/><br/><br/><br/><br/><br/>
-    </animated.div>
-  )
+
+        <div className="text-center">
+          <h2 className="mb-4" style={{ color: '#00897B' }}>Ready to Start Your Cute Adventure?</h2>
+       <br/><br/><br/>
+        </div>
+      </div>
+      </div>
+  );
 }

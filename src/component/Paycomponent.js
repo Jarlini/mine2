@@ -46,8 +46,7 @@ const PackagesPage = () => {
   };
   
   return (
-    <div className="container py-5"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
- 
+    <div className="container py-5"><br/><br/><br/>
       <h1 className="text-center mb-5 text-primary">
         <FontAwesomeIcon icon={faHeart} className="me-2" />       Select Your Dream Packages
       </h1>

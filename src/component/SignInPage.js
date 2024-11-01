@@ -30,7 +30,7 @@ function SignInPage() {
             if (response.data.role === 'admin') {
                 navigate('/admin-dashboard'); // Redirect to admin dashboard if admin
             } else {
-                navigate('/home'); // Redirect to user home page if not admin
+                navigate('/'); // Redirect to user home page if not admin
             }
         } catch (err) {
             toast.error('Invalid email or password!', {
@@ -48,7 +48,7 @@ function SignInPage() {
                     <img src={pic3} alt="Sign In" className="sign-in-image" />
                 </div>
                 <div className="form-section">
-                    <h1 className="form-title">Sign In</h1>
+                    <h1 className="form-title">Sign In</h1><br/>
                     <form onSubmit={handleSignIn} className="sign-in-form">
                         <input
                             type="email"
